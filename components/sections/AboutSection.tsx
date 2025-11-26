@@ -1,105 +1,194 @@
 export default function AboutSection() {
   return (
-    <>
-      {/* Mobile Full-Width Card */}
-      <div className="lg:hidden bg-white py-8 px-4">
-        <div className="bg-white shadow-xl p-6 mx-auto max-w-sm animate-fadeInUp hover:-translate-y-0.5 transition-transform duration-300">
-          {/* Arrow icon in top-right */}
-          <div className="absolute top-4 right-4">
-            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
+    <section className="w-full bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* 1. CLIENT LOGOS ROW */}
+        <div className="py-16">
+          <div className="flex justify-between items-center">
+            <div className="text-2xl font-bold text-black">Walmart</div>
+            <div className="text-2xl font-bold text-black">InVision</div>
+            <div className="text-2xl font-bold text-black">Netflix</div>
+            <div className="text-2xl font-bold text-black">Logitech</div>
+            <div className="text-2xl font-bold text-black">Amazon</div>
           </div>
-          
-          {/* "hey!" handwritten-style SVG */}
-          <div className="mb-4">
-            <svg 
-              width="48" 
-              height="48" 
-              viewBox="0 0 48 48" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-12 h-12"
+        </div>
+
+        {/* 2. MAIN TWO-COLUMN AGENCY INTRO BLOCK */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center py-20">
+          {/* Left Column - Main Heading */}
+          <div>
+            <h1 
+              className="text-5xl lg:text-6xl font-bold leading-tight"
+              style={{ 
+                color: '#111111',
+                lineHeight: '1.1',
+                fontFamily: 'var(--font-space-grotesk)'
+              }}
             >
-              <text 
-                x="24" 
-                y="28" 
-                fontFamily="cursive" 
-                fontSize="16" 
-                fontWeight="bold" 
-                fill="#FACC15" 
-                textAnchor="middle"
-                style={{ fontStyle: 'italic', fontWeight: 700 }}
+              We are a creative<br/>
+              bold digital agency<br/>
+              <span className="relative inline-block">
+                based in london.
+                {/* Yellow underline paint stroke */}
+                <svg 
+                  className="absolute -bottom-2 -left-1 w-32 h-6 text-yellow-400"
+                  viewBox="0 0 120 25"
+                  fill="currentColor"
+                  style={{ transform: 'rotate(-2deg)' }}
+                >
+                  <path d="M5,12 Q30,3 60,12 T115,12 Q110,20 60,16 T10,16 Q5,14 5,12" />
+                </svg>
+              </span>
+            </h1>
+          </div>
+
+          {/* Right Column - Experience Circle + Copy */}
+          <div className="flex items-center gap-8">
+            {/* Big Black Circle Badge */}
+            <div 
+              className="flex-shrink-0 rounded-full flex items-center justify-center"
+              style={{ 
+                width: '240px',
+                height: '240px',
+                backgroundColor: '#1A1A1A',
+                backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px)'
+              }}
+            >
+              <span 
+                className="text-white font-bold"
+                style={{ fontSize: '70px' }}
               >
-                hey!
-              </text>
-            </svg>
-          </div>
-          
-          {/* Large headline (Crafto style) */}
-          <div className="text-center space-y-1">
-            <div className="text-2xl lg:text-3xl font-black text-black" style={{ fontFamily: 'var(--font-space-grotesk)' }}>World-class</div>
-            <div className="text-2xl lg:text-3xl font-black" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-              <span className="text-black">digital</span>
-              <span className="text-gray-500"> media</span>
+                20+
+              </span>
             </div>
-            <div className="text-2xl lg:text-3xl font-black text-black" style={{ fontFamily: 'var(--font-space-grotesk)' }}>agency.</div>
-          </div>
-        </div>
-      </div>
 
-      {/* Client Logo Bar */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center items-center gap-16 opacity-60 animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
-            <div className="logo-item text-2xl font-bold animate-delay-100">Walmart</div>
-            <div className="logo-item text-2xl font-bold animate-delay-200">Invision</div>
-            <div className="logo-item text-2xl font-bold animate-delay-300">NETFLIX</div>
-            <div className="logo-item text-2xl font-bold animate-delay-400">logitech</div>
-            <div className="logo-item text-2xl font-bold animate-delay-500">amazon</div>
-          </div>
-        </div>
-      </section>
-
-      {/* About & Stats Section */}
-      <section id="agency" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top Part - Two Column Layout */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.1s' }}>
-              <h2 className="text-4xl lg:text-5xl font-bold">
-                We are a creative bold digital agency based in{" "}
-                <span className="bg-yellow-400 px-2 -mx-2">london.</span>
+            {/* Experience Text Block */}
+            <div>
+              <h2 
+                className="text-lg font-bold tracking-wider mb-4"
+                style={{ 
+                  color: '#111111',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                20+ YEARS OF EXPERIENCE
               </h2>
-            </div>
-            <div className="animate-fadeInUp flex items-center gap-6 opacity-0" style={{ animationDelay: '0.2s' }}>
-              <div className="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center hover-scale">
-                <span className="text-white text-2xl font-bold">20+</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">20+ YEARS OF EXPERIENCE</h3>
-                <p className="text-gray-600">Trusted by leading brands worldwide</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Bottom Part - 3 Column Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="animate-scaleIn text-center opacity-0" style={{ animationDelay: '0.3s' }}>
-              <div className="counter text-4xl font-bold mb-2">350+</div>
-              <div className="text-gray-600">very satisfied clients</div>
-            </div>
-            <div className="animate-scaleIn text-center opacity-0" style={{ animationDelay: '0.4s' }}>
-              <div className="counter text-4xl font-bold mb-2">200+</div>
-              <div className="text-gray-600">good award winning</div>
-            </div>
-            <div className="animate-scaleIn text-center opacity-0" style={{ animationDelay: '0.5s' }}>
-              <div className="counter text-4xl font-bold mb-2">750+</div>
-              <div className="text-gray-600">successfully project completed</div>
+              <p 
+                className="leading-relaxed"
+                style={{ 
+                  color: '#666666',
+                  lineHeight: '1.7'
+                }}
+              >
+                We are dedicated to providing<br/>
+                outstanding digital and design<br/>
+                services meet the functional<br/>
+                and aesthetic.
+              </p>
             </div>
           </div>
         </div>
-      </section>
-    </>
+
+        {/* 3. THREE STAT ITEMS */}
+        <div className="border-t border-gray-200 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* First Stat */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-6">
+                <span 
+                  className="text-4xl font-bold"
+                  style={{ color: '#111111' }}
+                >
+                  350+
+                </span>
+                <span 
+                  className="text-lg"
+                  style={{ color: '#666666' }}
+                >
+                  very satisfied clients around the worldwide.
+                </span>
+              </div>
+              {/* Smile face icon */}
+              <svg 
+                className="w-8 h-8 flex-shrink-0"
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="1.5"
+                style={{ color: '#666666' }}
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            </div>
+
+            {/* Second Stat */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-6">
+                <span 
+                  className="text-4xl font-bold"
+                  style={{ color: '#111111' }}
+                >
+                  200+
+                </span>
+                <span 
+                  className="text-lg"
+                  style={{ color: '#666666' }}
+                >
+                  good award winning digital media agency.
+                </span>
+              </div>
+              {/* Megaphone icon */}
+              <svg 
+                className="w-8 h-8 flex-shrink-0"
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="1.5"
+                style={{ color: '#666666' }}
+              >
+                <path d="M3 12l6-6v12l-6-6z"></path>
+                <path d="M9 12h12"></path>
+                <path d="M21 8v8"></path>
+              </svg>
+            </div>
+
+            {/* Third Stat */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-6">
+                <span 
+                  className="text-4xl font-bold"
+                  style={{ color: '#111111' }}
+                >
+                  750+
+                </span>
+                <span 
+                  className="text-lg"
+                  style={{ color: '#666666' }}
+                >
+                  successfully project completed in one year.
+                </span>
+              </div>
+              {/* Briefcase icon */}
+              <svg 
+                className="w-8 h-8 flex-shrink-0"
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="1.5"
+                style={{ color: '#666666' }}
+              >
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   );
 }

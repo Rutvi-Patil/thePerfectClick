@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Space_Grotesk } from "next/font/google";
+import Navigation from "@/components/Navigation";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${manrope.variable} ${spaceGrotesk.variable} antialiased`}
       >
+        <Navigation />
         {children}
         <script src="/scroll-animations.js" async></script>
       </body>
