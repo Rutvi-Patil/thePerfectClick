@@ -1,145 +1,180 @@
-import { ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
-
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20 bg-black text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="animate-fadeInUp text-4xl lg:text-5xl font-bold mb-4 opacity-0" style={{ animationDelay: '0.1s' }}>
-            Let's work together
+    <section className="w-full bg-white py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Main Heading */}
+        <div className="text-center mb-20">
+          <h2 
+            className="text-5xl lg:text-6xl font-bold leading-tight"
+            style={{ color: '#111111', lineHeight: '1.1' }}
+          >
+            We're here to help you and answer any questions you might have.
           </h2>
-          <p className="animate-fadeInUp text-xl text-gray-400 max-w-3xl mx-auto opacity-0" style={{ animationDelay: '0.2s' }}>
-            Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you as soon as possible.
-          </p>
         </div>
         
-        {/* Contact Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.3s' }}>
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 transition-colors"
-                  placeholder="Project inquiry"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 transition-colors resize-none"
-                  placeholder="Tell us about your project..."
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full bg-yellow-400 text-black px-8 py-4 rounded-full font-bold hover:bg-yellow-300 transition-colors flex items-center justify-center gap-3"
+        {/* Four Contact Info Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          {/* Column 1 - Office Location */}
+          <div className="text-center">
+            {/* Pin Icon with peach dotted highlight */}
+            <div className="relative inline-block mb-6">
+              <svg 
+                className="w-12 h-12"
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="#111111" 
+                strokeWidth="1.5"
               >
-                Send message <ArrowRight className="w-5 h-5" />
-              </button>
-            </form>
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              {/* Peach dotted highlight */}
+              <svg 
+                className="absolute -top-1 -right-1 w-6 h-6"
+                viewBox="0 0 24 24" 
+                fill="#EEC8C3"
+              >
+                <circle cx="18" cy="6" r="2"/>
+                <circle cx="20" cy="10" r="1.5"/>
+                <circle cx="16" cy="11" r="1"/>
+              </svg>
+            </div>
+            
+            <h3 
+              className="text-xl font-semibold mb-3"
+              style={{ color: '#111111' }}
+            >
+              Office location
+            </h3>
+            <p 
+              className="text-sm leading-relaxed"
+              style={{ color: '#666666', lineHeight: '1.6' }}
+            >
+              27 Eden walk eden center,<br />
+              Orchard view, Paris,<br />
+              France
+            </p>
           </div>
           
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.4s' }}>
-              <h3 className="text-2xl font-bold mb-6">Get in touch</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-black" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Email</h4>
-                    <p className="text-gray-400">hello@digitalagency.com</p>
-                    <p className="text-gray-400">info@digitalagency.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-black" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Phone</h4>
-                    <p className="text-gray-400">+44 20 7123 4567</p>
-                    <p className="text-gray-400">+44 20 7123 4568</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-black" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Office</h4>
-                    <p className="text-gray-400">123 Creative Street</p>
-                    <p className="text-gray-400">London, UK</p>
-                    <p className="text-gray-400">EC1A 1BB</p>
-                  </div>
-                </div>
-              </div>
+          {/* Column 2 - Send a Message */}
+          <div className="text-center">
+            {/* Chat bubble icon with peach dots */}
+            <div className="relative inline-block mb-6">
+              <svg 
+                className="w-12 h-12"
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="#111111" 
+                strokeWidth="1.5"
+              >
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              {/* Peach dotted highlight */}
+              <svg 
+                className="absolute -top-1 -right-1 w-6 h-6"
+                viewBox="0 0 24 24" 
+                fill="#EEC8C3"
+              >
+                <circle cx="18" cy="6" r="2"/>
+                <circle cx="20" cy="10" r="1.5"/>
+                <circle cx="16" cy="11" r="1"/>
+              </svg>
             </div>
             
-            <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.5s' }}>
-              <h3 className="text-2xl font-bold mb-4">Business hours</h3>
-              <div className="space-y-2 text-gray-400">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
-              </div>
+            <h3 
+              className="text-xl font-semibold mb-3"
+              style={{ color: '#111111' }}
+            >
+              Send a message
+            </h3>
+            <p 
+              className="text-sm leading-relaxed"
+              style={{ color: '#666666', lineHeight: '1.6' }}
+            >
+              info@yourdomain.com<br />
+              hr@yourdomain.com
+            </p>
+          </div>
+          
+          {/* Column 3 - Let's Talk */}
+          <div className="text-center">
+            {/* Phone icon with peach arc-dots */}
+            <div className="relative inline-block mb-6">
+              <svg 
+                className="w-12 h-12"
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="#111111" 
+                strokeWidth="1.5"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              {/* Peach arc-dots highlight */}
+              <svg 
+                className="absolute -top-1 -right-1 w-6 h-6"
+                viewBox="0 0 24 24" 
+                fill="#EEC8C3"
+              >
+                <circle cx="18" cy="6" r="2"/>
+                <circle cx="20" cy="10" r="1.5"/>
+                <circle cx="16" cy="11" r="1"/>
+              </svg>
             </div>
             
-            <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.6s' }}>
-              <h3 className="text-2xl font-bold mb-4">Follow us</h3>
-              <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors">
-                  <span className="font-bold">f</span>
-                </a>
-                <a href="#" className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors">
-                  <span className="font-bold">t</span>
-                </a>
-                <a href="#" className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors">
-                  <span className="font-bold">in</span>
-                </a>
-                <a href="#" className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors">
-                  <span className="font-bold">ig</span>
-                </a>
-              </div>
+            <h3 
+              className="text-xl font-semibold mb-3"
+              style={{ color: '#111111' }}
+            >
+              Let's talk with us
+            </h3>
+            <p 
+              className="text-sm leading-relaxed"
+              style={{ color: '#666666', lineHeight: '1.6' }}
+            >
+              Phone: 1-800-222-000<br />
+              Fax:   1-800-222-002
+            </p>
+          </div>
+          
+          {/* Column 4 - Join Our Team */}
+          <div className="text-center">
+            {/* Person icon with peach dotted partner shadow */}
+            <div className="relative inline-block mb-6">
+              <svg 
+                className="w-12 h-12"
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="#111111" 
+                strokeWidth="1.5"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              {/* Peach dotted partner shadow */}
+              <svg 
+                className="absolute -top-1 -right-1 w-6 h-6"
+                viewBox="0 0 24 24" 
+                fill="#EEC8C3"
+              >
+                <circle cx="18" cy="6" r="2"/>
+                <circle cx="20" cy="10" r="1.5"/>
+                <circle cx="16" cy="11" r="1"/>
+              </svg>
             </div>
+            
+            <h3 
+              className="text-xl font-semibold mb-3"
+              style={{ color: '#111111' }}
+            >
+              Join our team
+            </h3>
+            <p 
+              className="text-sm leading-relaxed"
+              style={{ color: '#666666', lineHeight: '1.6' }}
+            >
+              Lorem ipsum is simply the<br />
+              printing typesetting.
+            </p>
           </div>
         </div>
       </div>
