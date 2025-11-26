@@ -1,0 +1,50 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marqueeContainer {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-bottom: 4rem; /* Add space between marquee and footer */
+}
+
+.marqueeContent {
+  display: inline-block;
+  animation: marquee 60s linear infinite;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.marqueeItem {
+  display: inline-block;
+  padding-right: 4rem;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marqueeItem {
+    padding-right: 2rem;
+  }
+  
+  .marqueeContainer {
+    margin-bottom: 2rem; /* Reduced space on mobile */
+  }
+}
+
+/* Pause on hover for better UX */
+.marqueeContainer:hover .marqueeContent {
+  animation-play-state: paused;
+}
