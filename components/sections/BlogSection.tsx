@@ -2,14 +2,14 @@ import { ArrowRight } from 'lucide-react';
 
 export default function BlogSection() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="animate-fadeInUp text-4xl lg:text-5xl font-bold mb-4 opacity-0" style={{ animationDelay: '0.1s' }}>
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="animate-fadeInUp text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 opacity-0" style={{ animationDelay: '0.1s' }}>
             Latest blog posts
           </h2>
-          <p className="animate-fadeInUp text-xl text-gray-600 max-w-3xl mx-auto opacity-0" style={{ animationDelay: '0.2s' }}>
+          <p className="animate-fadeInUp text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto opacity-0" style={{ animationDelay: '0.2s' }}>
             Stay updated with the latest trends, insights, and news from the digital world.
           </p>
         </div>

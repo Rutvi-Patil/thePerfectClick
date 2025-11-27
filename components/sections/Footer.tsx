@@ -2,18 +2,18 @@ import { ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12 border-t border-gray-800">
+    <footer className="bg-black text-white py-8 sm:py-12 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center">
                 <span className="text-black font-bold text-sm">DA</span>
               </div>
-              <span className="text-xl font-bold">Digital Agency</span>
+              <span className="text-lg sm:text-xl font-bold">Digital Agency</span>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-4 text-sm sm:text-base">
               Creating world-class digital experiences that inspire and engage.
             </p>
             <div className="flex gap-3">

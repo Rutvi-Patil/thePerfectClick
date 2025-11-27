@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import MobileMenu from './MobileMenu';
 
 export default function Navigation() {
   return (
     <header className="absolute top-0 left-0 right-0 z-50 font-space-grotesk text-[19px]" style={{ fontFamily: 'var(--font-space-grotesk)', fontSize: '19px' }}>
       <div className="flex justify-between items-center h-16 px-[10px] lg:px-[16px]">
         {/* Left Side - DA Logo and Nav Links */}
-        <div className="flex items-center space-x-8 pl-8 lg:pl-16">
+        <div className="flex items-center space-x-8 pl-4 sm:pl-8 lg:pl-16">
           {/* Black square logo with "DA" */}
           <Link href="/" className="hover-scale">
             <div className="w-10 h-10 bg-black flex items-center justify-center" style={{ width: 'auto', height: '40px', aspectRatio: '1' }}>
@@ -13,7 +14,7 @@ export default function Navigation() {
             </div>
           </Link>
           
-          {/* Navigation Links */}
+          {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link href="/" className="nav-link text-black hover:text-yellow-400">Home</Link>
             <Link href="/agency" className="nav-link text-black hover:text-yellow-400">Agency</Link>
@@ -23,13 +24,20 @@ export default function Navigation() {
           </nav>
         </div>
         
-        {/* Right Side - Send Message Button */}
-        <div className="pr-8 lg:pr-16">
-          <Link href="/contact">
-            <button className="btn-hover-slide bg-transparent text-white px-4 py-2 hover:bg-white hover:text-black transition-colors border border-white" suppressHydrationWarning>
-              Send a message
-            </button>
-          </Link>
+        {/* Right Side - Mobile Menu and Send Message Button */}
+        <div className="flex items-center gap-4 pr-4 sm:pr-8 lg:pr-16">
+          {/* Mobile Menu Toggle */}
+          <MobileMenu />
+          
+          {/* Send Message Button - Desktop */}
+          <div className="hidden sm:block">
+            <Link href="/contact">
+              <button className="btn-hover-slide bg-black text-white px-4 py-2 hover:bg-gray-800 transition-colors border border-black" suppressHydrationWarning>
+                Send a message
+              </button>
+            </Link>
+          </div>
+
         </div>
       </div>
     </header>

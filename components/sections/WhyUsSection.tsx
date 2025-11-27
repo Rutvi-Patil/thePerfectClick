@@ -1,9 +1,4 @@
-'use client';
-
-import { useState } from 'react';
-
 export default function WhyUsSection() {
-  const [isHovered, setIsHovered] = useState(false);
 
   const features = [
     {
@@ -68,16 +63,10 @@ export default function WhyUsSection() {
         
         {/* Center Video Play Button */}
         <div className="mb-12 lg:mb-16">
-          <div 
-            className="relative group cursor-pointer"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
+          <div className="relative group cursor-pointer">
             {/* Main Black Circle */}
             <div 
-              className={`w-24 h-24 lg:w-28 lg:h-28 bg-black rounded-full flex items-center justify-center transition-all duration-300 ${
-                isHovered ? 'scale-110 shadow-2xl' : 'shadow-xl'
-              }`}
+              className="w-24 h-24 lg:w-28 lg:h-28 bg-black rounded-full flex items-center justify-center transition-all duration-300 shadow-xl group-hover:scale-110 group-hover:shadow-2xl"
               style={{
                 background: 'radial-gradient(circle at 30% 30%, #2a2a2a, #000000)'
               }}
@@ -97,7 +86,6 @@ export default function WhyUsSection() {
               <svg 
                 className="w-40 h-40 lg:w-44 lg:h-44 animate-spin-slow" 
                 viewBox="0 0 200 200"
-                style={{ animationDuration: '20s' }}
               >
                 <defs>
                   <path 
@@ -157,20 +145,6 @@ export default function WhyUsSection() {
         </div>
       </div>
 
-      {/* Custom Styles */}
-      <style jsx>{`
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
-        }
-      `}</style>
     </section>
   );
 }
