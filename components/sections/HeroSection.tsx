@@ -7,7 +7,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 pattern-bg opacity-5 animate-pattern-bg"></div>
       
       {/* Left Half - Light Pink Background */}
-      <div className="w-full lg:w-1/2 diagonal-crosshatch flex items-center justify-center p-6 sm:p-8 lg:p-16 relative z-10 order-2 lg:order-1 lg:min-h-screen mx-auto lg:mx-0 w-[320px] h-[450px] lg:w-full lg:h-full">
+      <div className="flex-1
+ diagonal-crosshatch flex items-center justify-center p-6 sm:p-8 lg:p-16 relative z-10 order-2 lg:order-1 lg:min-h-screen mx-auto lg:mx-0 w-full h-full">
         {/* Hero Content */}
         <div className="max-w-lg w-full">
           <h1 className="animate-fadeInUp font-black mb-6 opacity-0" style={{ fontFamily: 'var(--font-space-grotesk)', fontSize: 'clamp(48px, 8vw, 110px)', lineHeight: '0.9', animationDelay: '0.2s' }}>
