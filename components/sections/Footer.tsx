@@ -8,9 +8,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-sm">DA</span>
-              </div>
+              <img
+                src="/logo-yellow.png"
+                alt="DA Logo"
+                className="w-10 h-10"
+              />
               <span className="text-lg sm:text-xl font-bold">Digital Agency</span>
             </div>
             <p className="text-gray-400 mb-4 text-sm sm:text-base">

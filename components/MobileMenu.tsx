@@ -46,9 +46,12 @@ export default function MobileMenu() {
           {/* Sidebar Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <Link href="/" className="hover-scale" onClick={closeSidebar}>
-              <div className="w-10 h-10 bg-black flex items-center justify-center" style={{ width: 'auto', height: '40px', aspectRatio: '1' }}>
-                <span className="text-white font-bold text-sm">DA</span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="DA Logo"
+                className="w-10 h-10"
+                style={{ width: 'auto', height: '40px', aspectRatio: '1' }}
+              />
             </Link>
             <button
               onClick={closeSidebar}

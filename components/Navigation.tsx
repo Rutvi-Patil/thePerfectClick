@@ -4,14 +4,17 @@ import MobileMenu from './MobileMenu';
 export default function Navigation() {
   return (
     <header className="absolute top-0 left-0 right-0 z-50 font-space-grotesk text-[19px]" style={{ fontFamily: 'var(--font-space-grotesk)', fontSize: '19px' }}>
-      <div className="flex justify-between items-center h-16 px-[10px] lg:px-[16px]">
+      <div className="flex justify-between items-center h-16 px-2.5 lg:px-4">
         {/* Left Side - DA Logo and Nav Links */}
         <div className="flex items-center space-x-8 pl-4 sm:pl-8 lg:pl-16">
-          {/* Black square logo with "DA" */}
+          {/* Logo */}
           <Link href="/" className="hover-scale">
-            <div className="w-10 h-10 bg-black flex items-center justify-center" style={{ width: 'auto', height: '40px', aspectRatio: '1' }}>
-              <span className="text-white font-bold text-sm">DA</span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="DA Logo"
+              className="w-10 h-10"
+              style={{ width: 'auto', height: '40px', aspectRatio: '1' }}
+            />
           </Link>
           
           {/* Desktop Navigation Links */}
