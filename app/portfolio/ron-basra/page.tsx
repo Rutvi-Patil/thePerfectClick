@@ -1,5 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Footer from "@/components/sections/Footer";
+
+
 
 type RecentWorkItem = {
   title: string;
@@ -11,7 +14,7 @@ const recentWork: RecentWorkItem[] = [
   {
     title: "Ron Basra – Instagram Funnel",
     category: "Real Estate",
-    image: "/images/ron-basra-cover-1.jpg",
+    image: "/images/funnel.png",
   },
   {
     title: "Ron Basra – Listing Videos",
@@ -21,17 +24,24 @@ const recentWork: RecentWorkItem[] = [
   {
     title: "Ron Basra – Brand Refresh",
     category: "Branding",
-    image: "/images/ron-basra-cover-3.jpg",
+    image: "/images/BR.png",
   },
   {
     title: "Local Broker – Lead Gen",
     category: "Real Estate",
-    image: "/images/real-estate-cover-1.jpg",
+    image: "/images/brd.jpg",
   },
 ];
 
 const RonBasraCaseStudy: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+   useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.instagram.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   const handleNext = () => {
     setCurrentSlide((prev) => (prev + 1) % recentWork.length);
@@ -94,22 +104,35 @@ const RonBasraCaseStudy: React.FC = () => {
             </div>
 
             {/* hero image */}
-            <div className="mt-10 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-[0_0_60px_-30px_rgba(16,185,129,0.8)]">
-              <div className="aspect-[16/9] w-full bg-[url('/images/ron-basra-hero.jpg')] bg-cover bg-center">
-                {/* fallback overlay */}
-                <div className="flex h-full w-full items-end bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent p-6">
-                  <div className="space-y-1">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
-                      Case Study
-                    </p>
-                    <p className="text-sm text-slate-100 md:text-base">
-                      Instagram-first storytelling for listings, neighbourhoods,
-                      and the Ron Basra brand.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+           <div className="relative mt-10 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-[0_0_60px_-30px_rgba(16,185,129,0.8)]">
+  {/* Aspect-ratio wrapper */}
+  <div className="relative w-full aspect-[16/9]">
+    {/* Video background */}
+    <video
+      src="/videos/RBF.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+
+    {/* Overlay */}
+    <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent p-6">
+      <div className="space-y-1">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+          Case Study
+        </p>
+        <p className="text-sm text-slate-100 md:text-base">
+          Instagram-first storytelling for listings, neighbourhoods,
+          and the Ron Basra brand.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
           </div>
         </section>
 
@@ -274,28 +297,53 @@ const RonBasraCaseStudy: React.FC = () => {
             </h2>
 
             <div className="mt-8 grid gap-5 md:grid-cols-3">
-              <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60">
-                <div className="aspect-[4/5] bg-[url('/images/ron-basra-feed-1.jpg')] bg-cover bg-center" />
-                <div className="p-4 text-sm text-slate-200">
-                  Listing-first visuals: short reels showcasing interiors,
-                  exteriors, and key selling points.
-                </div>
-              </div>
-              <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60">
-                <div className="aspect-[4/5] bg-[url('/images/ron-basra-feed-2.jpg')] bg-cover bg-center" />
-                <div className="p-4 text-sm text-slate-200">
-                  Story-driven content: client moments, behind-the-scenes, and
-                  educational tips that build trust.
-                </div>
-              </div>
-              <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60">
-                <div className="aspect-[4/5] bg-[url('/images/ron-basra-feed-3.jpg')] bg-cover bg-center" />
-                <div className="p-4 text-sm text-slate-200">
-                  Brand consistency: typography, color, and framing aligned with
-                  the new website direction.
-                </div>
-              </div>
-            </div>
+  {/* CARD 1 */}
+  <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60">
+    <div className="aspect-[4/5] relative">
+      <iframe
+        src="https://www.instagram.com/reel/DP2n9SqEcuC/embed"
+        className="absolute inset-0 h-full w-full"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+    <div className="p-4 text-sm text-slate-200">
+      Listing-first visuals: short reels showcasing interiors, exteriors,
+      and key selling points.
+    </div>
+  </div>
+
+  {/* CARD 2 */}
+  <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60">
+    <div className="aspect-[4/5] relative">
+      <iframe
+        src="https://www.instagram.com/reel/DQVz_LGkWRg/embed"
+        className="absolute inset-0 h-full w-full"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+    <div className="p-4 text-sm text-slate-200">
+      Story-driven content: client moments, behind-the-scenes, and educational
+      tips that build trust.
+    </div>
+  </div>
+
+  {/* CARD 3 — if you want another reel later, replace src */}
+  <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60">
+    <div className="aspect-[4/5] relative">
+      <iframe
+        src="https://www.instagram.com/reel/REEL_ID_3/embed"
+        className="absolute inset-0 h-full w-full"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+    <div className="p-4 text-sm text-slate-200">
+      Brand consistency: typography, color, and framing aligned with the new
+      website direction.
+    </div>
+  </div>
+</div>
+
+
           </div>
         </section>
 
@@ -463,28 +511,7 @@ const RonBasraCaseStudy: React.FC = () => {
         </section>
       </main>
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-800 bg-slate-950">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Your Name — Portfolio Case Study.</p>
-          <div className="flex gap-4">
-            <a
-              href="https://www.instagram.com/ronbasra/"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-emerald-300"
-            >
-              Instagram
-            </a>
-            <a href="mailto:you@example.com" className="hover:text-emerald-300">
-              Email
-            </a>
-            <a href="/" className="hover:text-emerald-300">
-              Back to home
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
