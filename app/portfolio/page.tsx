@@ -3,457 +3,251 @@ import Link from 'next/link';
 import MarqueeSection from '@/components/sections/MarqueeSection';
 import React from 'react';
 
-export default function PortfolioPage() {
+function PortfolioPage() {
   return (
-    <>
-      <style>{`
-        .page-wrapper {
-          min-height: 100vh;
-          background-color: #ffffff;
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-          line-height: 1.6;
-          color: #1e1e1e;
-          padding: 80px 0;
-        }
+    <div className="min-h-screen bg-white font-inter text-gray-800 leading-relaxed py-20 lg:py-20 py-10">
+      <div className="max-w-7xl mx-auto lg:px-6 px-4">
+        {/* PROJECT 1: NORTHWEST */}
+        <section className="lg:py-16 py-12 border-b border-gray-100 last:border-b-0">
+          <h1 className="lg:text-5xl text-3xl font-bold lg:mb-8 mb-6 tracking-tight">Northwest Constructions Ltd.</h1>
 
-        /* Layout Container */
-        .portfolio-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 0 40px;
-        }
+          <div className="lg:flex gap-20 items-end lg:flex-row flex-col lg:gap-20 gap-10">
+            <div className="flex-1 lg:max-w-md max-w-full lg:pt-10 pt-0 lg:flex flex-col justify-between lg:min-h-96 min-h-auto block">
+              <p className="lg:text-2xl text-xl leading-snug lg:mb-8 mb-6 lg:max-w-sm max-w-full text-gray-600">
+                Northwest Constructions is committed to building spaces that
+                stand the test of time, with thoughtful planning and structural
+                innovation at every stage.
+              </p>
 
-        /* Individual Project Section Spacing */
-        .project-section {
-          padding: 80px 0;
-          border-bottom: 1px solid #f0f0f0;
-        }
-
-        .project-section:last-child {
-          border-bottom: none;
-        }
-
-        /* Top Header (Project Title) */
-        .header {
-          font-size: 48px;
-          font-weight: 700;
-          margin-bottom: 60px;
-          letter-spacing: -1px;
-        }
-
-        /* Main Content Grid/Flex Layout */
-        .content-wrapper {
-          display: flex;
-          gap: 80px;
-          align-items: flex-start;
-        }
-
-        /* Left Column (Text) */
-        .text-content {
-          flex: 1;
-          max-width: 450px;
-          padding-top: 80px;
-        }
-
-        .text-content p {
-          font-size: 24px;
-          line-height: 1.5;
-          margin-bottom: 50px;
-          max-width: 350px;
-          color: #4a4a4a;
-        }
-
-        /* Statistic Block */
-        .statistic-block {
-          margin-top: 80px;
-        }
-
-        .statistic-block .percentage {
-          font-size: 80px;
-          font-weight: 700;
-          margin-bottom: 10px;
-          line-height: 1;
-        }
-
-        .statistic-block .description {
-          font-size: 18px;
-          color: #4a4a4a;
-          max-width: 280px;
-        }
-
-        /* CTA Button (Case study link) */
-        .cta-button {
-          display: inline-block;
-          background-color: #facc15;
-          color: #000000;
-          padding: 12px 24px;
-          border-radius: 12px;
-          font-weight: 700;
-          text-decoration: none;
-          margin-top: 24px;
-          transition: background-color 0.2s ease;
-        }
-
-        .cta-button:hover {
-          background-color: #fde047;
-        }
-
-        /* Right Column (Image/Video) */
-        .image-content {
-          flex: 2;
-          position: relative;
-          min-width: 600px;
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .image-content img,
-        .image-content video {
-          width: 100%;
-          height: auto;
-          display: block;
-        }
-
-        /* Base Overlay Styling (Pill/Card) */
-        .overlay {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background-color: rgba(255, 255, 255, 0.95);
-          padding: 10px;
-          border-radius: 50px;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          font-size: 20px;
-          font-weight: 600;
-          white-space: nowrap;
-        }
-
-        /* Status Label Overlay (Project 2) */
-        .status-overlay {
-          background-color: rgba(255, 255, 255, 1);
-          border-radius: 8px;
-          padding: 15px 25px;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .status-overlay .status-dot {
-          width: 10px;
-          height: 10px;
-          background-color: #ff9900;
-          border-radius: 50%;
-        }
-
-        .status-overlay .text-label {
-          color: #1e1e1e;
-          font-size: 16px;
-          font-weight: 500;
-        }
-
-        /* Progress Bar Overlay (Project 3) */
-        .progress-overlay {
-          background-color: #f0f0f0;
-          padding: 15px 15px 15px 25px;
-          border-radius: 8px;
-          width: 300px;
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .progress-overlay .progress-text {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          font-size: 16px;
-          color: #4a4a4a;
-        }
-
-        .progress-overlay .bar-container {
-          width: 100%;
-          height: 8px;
-          background-color: #e0e0e0;
-          border-radius: 4px;
-          overflow: hidden;
-        }
-
-        .progress-overlay .progress-bar {
-          width: 75%;
-          height: 100%;
-          background-color: #00BCD4;
-        }
-
-        /* Notification Badge Overlay (Project 5) */
-        .badge-overlay {
-          background-color: #1e1e1e;
-          padding: 15px 25px;
-          border-radius: 12px;
-          gap: 10px;
-          box-shadow: 0 10px 30px rgba(30, 30, 30, 0.2);
-        }
-
-        .badge-overlay .badge-icon {
-          font-size: 24px;
-          color: #ff5e3a;
-        }
-
-        .badge-overlay .badge-text {
-          color: #ffffff;
-          font-size: 18px;
-          font-weight: 500;
-        }
-
-        /* Media Query for responsiveness */
-        @media (max-width: 1000px) {
-          .page-wrapper {
-            padding: 40px 0;
-          }
-
-          .content-wrapper {
-            flex-direction: column;
-            gap: 40px;
-          }
-
-          .text-content {
-            max-width: 100%;
-            padding-top: 0;
-          }
-
-          .image-content {
-            min-width: unset;
-            margin: 0 -20px;
-          }
-
-          .portfolio-container {
-            padding: 0 20px;
-          }
-
-          .header {
-            font-size: 36px;
-            margin-bottom: 40px;
-          }
-
-          .text-content p {
-            font-size: 20px;
-          }
-
-          .statistic-block .percentage {
-            font-size: 64px;
-          }
-        }
-      `}</style>
-
-      <div className="page-wrapper">
-        <div className="portfolio-container">
-          {/* PROJECT 1: NORTHWEST */}
-          <section className="project-section">
-            <div className="header">Northwest Constructions Ltd.</div>
-
-            <div className="content-wrapper">
-              <div className="text-content">
-                <p>
-                  Northwest Constructions is committed to building spaces that
-                  stand the test of time, with thoughtful planning and structural
-                  innovation at every stage.
-                </p>
-
-                <div className="statistic-block">
-                  <div className="percentage" style={{ color: '#00b075' }}>
-                    58%
-                  </div>
-                  <div className="description">
-                    Share price increase in the 12 months after launch.
-                  </div>
-                  <Link href="/portfolio/northwest" className="cta-button">
-                    View Full Case Study →
-                  </Link>
+              <div className="lg:mt-10 mt-8">
+                <div className="lg:text-6xl text-5xl font-bold mb-2 leading-none text-green-600">
+                  58%
                 </div>
-              </div>
-
-              <div className="image-content">
-                <video autoPlay muted loop playsInline controls>
-                  <source
-                    src="https://r2-northwest.takkar.ooo/surrey_city_centre_Drone_May7_compressed.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                <div className="lg:text-lg text-base text-gray-600 lg:max-w-72 max-w-full">
+                  Share price increase in the 12 months after launch.
+                </div>
+                <Link 
+                  href="/portfolio/northwest" 
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                >
+                  View Full Case Study →
+                </Link>
               </div>
             </div>
-          </section>
 
-          {/* PROJECT 2: RON BASRA */}
-          <section className="project-section">
-            <div className="header">Ron Basra Real Estate Group</div>
-
-            <div className="content-wrapper">
-              <div className="text-content">
-                <p>
-                  Ron Basra and his team bring nearly three decades of
-                  award-winning real estate service to Vancouver, combining deep
-                  local insight with client-first guidance on every transaction.
-                </p>
-
-                <div className="statistic-block">
-                  <div className="percentage" style={{ color: '#6C5CE7' }}>
-                    28+
-                  </div>
-                  <div className="description">
-                    Years of award-winning real estate service in Vancouver.
-                  </div>
-                  <Link href="/portfolio/ron-basra" className="cta-button">
-                    View Full Case Study →
-                  </Link>
-                </div>
-              </div>
-
-              <div className="image-content">
-                <img
-                  src="https://placehold.co/800x530/6C5CE7/FFFFFF?text=Agency+Teamwork+Visual"
-                  alt="People collaborating in a modern office."
+            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                controls
+                className="w-full lg:h-[500px] h-64 object-cover block"
+              >
+                <source
+                  src="https://r2-northwest.takkar.ooo/surrey_city_centre_Drone_May7_compressed.mp4"
+                  type="video/mp4"
                 />
-                <div className="overlay status-overlay">
-                  <span className="status-dot" />
-                  <span className="text-label">Project Live</span>
-                  <span className="text-label" style={{ opacity: 0.6 }}>
-                    2 weeks ago
-                  </span>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </section>
+
+        {/* PROJECT 2: RON BASRA */}
+        <section className="lg:py-16 py-12 border-b border-gray-100 last:border-b-0">
+          <h1 className="lg:text-5xl text-3xl font-bold lg:mb-8 mb-6 tracking-tight">Ron Basra Real Estate Group</h1>
+
+          <div className="lg:flex gap-20 items-end lg:flex-row flex-col lg:gap-20 gap-10">
+            <div className="flex-1 lg:max-w-md max-w-full lg:pt-10 pt-0 lg:flex flex-col justify-between lg:min-h-96 min-h-auto block">
+              <p className="lg:text-2xl text-xl leading-snug lg:mb-8 mb-6 lg:max-w-sm max-w-full text-gray-600">
+                Ron Basra and his team bring nearly three decades of
+                award-winning real estate service to Vancouver, combining deep
+                local insight with client-first guidance on every transaction.
+              </p>
+
+              <div className="lg:mt-10 mt-8">
+                <div className="lg:text-6xl text-5xl font-bold mb-2 leading-none text-purple-600">
+                  28+
                 </div>
+                <div className="lg:text-lg text-base text-gray-600 lg:max-w-72 max-w-full">
+                  Years of award-winning real estate service in Vancouver.
+                </div>
+                <Link 
+                  href="/portfolio/ron-basra" 
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                >
+                  View Full Case Study →
+                </Link>
               </div>
             </div>
-          </section>
 
-          {/* PROJECT 3: FORTE PHYSIO */}
-          <section className="project-section">
-            <div className="header">
-              Forte Sports &amp; Orthopaedic Physiotherapy
-            </div>
-
-            <div className="content-wrapper">
-              <div className="text-content">
-                <p>
-                  Forte Physiotherapy helps people move better and feel stronger
-                  with evidence-based care for sports injuries, pain, pelvic
-                  health and post-surgical recovery.
-                </p>
-
-                <div className="statistic-block">
-                  <div className="percentage" style={{ color: '#00BCD4' }}>
-                    92%
-                  </div>
-                  <div className="description">
-                    Customer satisfaction rating within the first 6 months of
-                    launch, exceeding targets.
-                  </div>
-                  <Link href="/portfolio/forte" className="cta-button">
-                    View Full Case Study →
-                  </Link>
-                </div>
-              </div>
-
-              <div className="image-content">
-                <img
-                  src="https://placehold.co/800x530/00BCD4/FFFFFF?text=Aura+App+Interface"
-                  alt="Mobile banking interface showing investment data."
+            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                controls
+                className="w-full lg:h-[500px] h-64 object-cover block"
+              >
+                <source
+                  src="https://digital-agency.takkar.ooo/RBF.mp4"
+                  type="video/mp4"
                 />
-                <div className="overlay progress-overlay">
-                  <div className="progress-text">
-                    <span>Sustainable Fund A</span>
-                    <span style={{ fontWeight: 700 }}>75% Funded</span>
-                  </div>
-                  <div className="bar-container">
-                    <div className="progress-bar" />
-                  </div>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </section>
+
+        {/* PROJECT 3: FORTE PHYSIO */}
+        <section className="lg:py-16 py-12 border-b border-gray-100 last:border-b-0">
+          <h1 className="lg:text-5xl text-3xl font-bold lg:mb-8 mb-6 tracking-tight">
+            Forte Sports & Orthopaedic Physiotherapy
+          </h1>
+
+          <div className="lg:flex gap-20 items-end lg:flex-row flex-col lg:gap-20 gap-10">
+            <div className="flex-1 lg:max-w-md max-w-full lg:pt-10 pt-0 lg:flex flex-col justify-between lg:min-h-96 min-h-auto block">
+              <p className="lg:text-2xl text-xl leading-snug lg:mb-8 mb-6 lg:max-w-sm max-w-full text-gray-600">
+                Forte Physiotherapy helps people move better and feel stronger
+                with evidence-based care for sports injuries, pain, pelvic
+                health and post-surgical recovery.
+              </p>
+
+              <div className="lg:mt-10 mt-8">
+                <div className="lg:text-6xl text-5xl font-bold mb-2 leading-none text-cyan-500">
+                  92%
+                </div>
+                <div className="lg:text-lg text-base text-gray-600 lg:max-w-72 max-w-full">
+                  Customer satisfaction rating within the first 6 months of
+                  launch, exceeding targets.
+                </div>
+                <Link 
+                  href="/portfolio/forte" 
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                >
+                  View Full Case Study →
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+              <img
+                src="https://placehold.co/800x530/00BCD4/FFFFFF?text=Aura+App+Interface"
+                alt="Mobile banking interface showing investment data."
+                className="w-full lg:h-[500px] h-64 object-cover block"
+              />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-100 p-4 rounded-lg lg:w-[300px] w-[280px] flex flex-col gap-2.5">
+                <div className="flex justify-between w-full lg:text-base text-sm text-gray-600">
+                  <span>Sustainable Fund A</span>
+                  <span className="font-bold">75% Funded</span>
+                </div>
+                <div className="w-full h-2 bg-gray-200 rounded overflow-hidden">
+                  <div className="w-3/4 h-full bg-cyan-500" />
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* PROJECT 4: MEDALLION */}
-          <section className="project-section">
-            <div className="header">Medallion Homes</div>
+        {/* PROJECT 4: MEDALLION */}
+        <section className="lg:py-16 py-12 border-b border-gray-100 last:border-b-0">
+          <h1 className="lg:text-5xl text-3xl font-bold lg:mb-8 mb-6 tracking-tight">Medallion Homes</h1>
 
-            <div className="content-wrapper">
-              <div className="text-content">
-                <p>
-                  Medallion Homes crafts residences that balance modern design
-                  with enduring quality, creating homes across Metro Vancouver
-                  that are beautiful, functional and built to last.
-                </p>
+          <div className="lg:flex gap-20 items-end lg:flex-row flex-col lg:gap-20 gap-10">
+            <div className="flex-1 lg:max-w-md max-w-full lg:pt-10 pt-0 lg:flex flex-col justify-between lg:min-h-96 min-h-auto block">
+              <p className="lg:text-2xl text-xl leading-snug lg:mb-8 mb-6 lg:max-w-sm max-w-full text-gray-600">
+                Medallion Homes crafts residences that balance modern design
+                with enduring quality, creating homes across Metro Vancouver
+                that are beautiful, functional and built to last.
+              </p>
 
-                <div className="statistic-block">
-                  <div className="percentage" style={{ color: '#FF5E3A' }}>
-                    450k
-                  </div>
-                  <div className="description">
-                    Sample listing value in recent Medallion-built communities.
-                  </div>
-                  <Link href="/portfolio/medallion" className="cta-button">
-                    View Full Case Study →
-                  </Link>
+              <div className="lg:mt-10 mt-8">
+                <div className="lg:text-6xl text-5xl font-bold mb-2 leading-none text-orange-400">
+                  450k
                 </div>
-              </div>
-
-              <div className="image-content">
-                <video autoPlay muted loop playsInline controls>
-                  <source
-                    src="https://r2-medallion.takkar.ooo/compressed_3118.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                <div className="lg:text-lg text-base text-gray-600 lg:max-w-72 max-w-full">
+                  Sample listing value in recent Medallion-built communities.
+                </div>
+                <Link 
+                  href="/portfolio/medallion" 
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                >
+                  View Full Case Study →
+                </Link>
               </div>
             </div>
-          </section>
 
-          {/* PROJECT 5: ARMAAN SANDHU */}
-          <section className="project-section">
-            <div className="header">Armaan Sandhu Real Estate</div>
-
-            <div className="content-wrapper">
-              <div className="text-content">
-                <p>
-                  Armaan Sandhu focuses on helping buyers and sellers navigate
-                  BC&apos;s residential market with clear advice, thoughtful
-                  marketing and a focus on long-term relationships.
-                </p>
-
-                <div className="statistic-block">
-                  <div className="percentage" style={{ color: '#1e1e1e' }}>
-                    $15M
-                  </div>
-                  <div className="description">
-                    Residential specialist serving Surrey, Vancouver and
-                    surrounding areas.
-                  </div>
-                  <Link href="/portfolio/armaan-sandhu" className="cta-button">
-                    View Full Case Study →
-                  </Link>
-                </div>
-              </div>
-
-              <div className="image-content">
-                <img
-                  src="https://placehold.co/800x530/1e1e1e/888888?text=Chronos+Desktop+View"
-                  alt="Dark, minimalist computer desktop interface."
+            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                controls
+                className="w-full lg:h-[500px] h-64 object-cover block"
+              >
+                <source
+                  src="https://r2-medallion.takkar.ooo/compressed_3118.mp4"
+                  type="video/mp4"
                 />
-                <div className="overlay badge-overlay">
-                  <span className="badge-icon">★</span>
-                  <span className="badge-text">
-                    New Feature Alert: Dark Mode v2
-                  </span>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </section>
+
+        {/* PROJECT 5: ARMAAN SANDHU */}
+        <section className="lg:py-16 py-12 border-b border-gray-100 last:border-b-0">
+          <h1 className="lg:text-5xl text-3xl font-bold lg:mb-8 mb-6 tracking-tight">Armaan Sandhu Real Estate</h1>
+
+          <div className="lg:flex gap-20 items-end lg:flex-row flex-col lg:gap-20 gap-10">
+            <div className="flex-1 lg:max-w-md max-w-full lg:pt-10 pt-0 lg:flex flex-col justify-between lg:min-h-96 min-h-auto block">
+              <p className="lg:text-2xl text-xl leading-snug lg:mb-8 mb-6 lg:max-w-sm max-w-full text-gray-600">
+                Armaan Sandhu focuses on helping buyers and sellers navigate
+                BC's residential market with clear advice, thoughtful
+                marketing and a focus on long-term relationships.
+              </p>
+
+              <div className="lg:mt-10 mt-8">
+                <div className="lg:text-6xl text-5xl font-bold mb-2 leading-none text-gray-800">
+                  $15M
                 </div>
+                <div className="lg:text-lg text-base text-gray-600 lg:max-w-72 max-w-full">
+                  Residential specialist serving Surrey, Vancouver and
+                  surrounding areas.
+                </div>
+                <Link 
+                  href="/portfolio/armaan-sandhu" 
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                >
+                  View Full Case Study →
+                </Link>
               </div>
             </div>
-          </section>
-        </div>
 
-        <MarqueeSection />
-        <Footer />
+            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+              <img
+                src="https://placehold.co/800x530/1e1e1e/888888?text=Chronos+Desktop+View"
+                alt="Dark, minimalist computer desktop interface."
+                className="w-full lg:h-[500px] h-64 object-cover block"
+              />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-4 rounded-xl gap-2.5 shadow-2xl flex items-center lg:w-auto w-[280px]">
+                <span className="lg:text-2xl text-xl text-red-400">★</span>
+                <span className="text-white lg:text-base text-sm font-medium">
+                  New Feature Alert: Dark Mode v2
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </>
+
+      <MarqueeSection />
+      <Footer />
+    </div>
   );
 }
+
+export default PortfolioPage;
