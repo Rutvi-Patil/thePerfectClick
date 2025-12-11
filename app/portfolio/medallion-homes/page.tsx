@@ -777,15 +777,15 @@ const MedallionHomesCaseStudy: React.FC = () => {
             <div className="mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full">
               {[
                 {
-                  
+                  label: "Medallion Homes Platform",
                   src: "/images/mhp.png",
                 },
                 {
-                  
+                  label: "Property Showcase",
                   src: "/images/prop.png",
                 },
                 {
-                  
+                  label: "Project Gallery",
                   src: "/images/pro.png",
                 },
               ].map((shot, i) => (
