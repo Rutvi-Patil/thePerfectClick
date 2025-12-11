@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/sections/Footer";
 
@@ -260,7 +261,7 @@ const ForteCaseStudy: React.FC = () => {
         <div key={index} className="text-center group flex flex-col items-center">
 
           {/* Image container - portrait-friendly circle */}
-          <div className="mb-6 relative w-56 h-72">
+          <div className="mb-6 relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-400 to-blue-600 opacity-20 group-hover:opacity-30 transition-opacity"></div>
 
             <div className="relative rounded-full overflow-hidden border-4 border-white shadow-xl w-full h-full">
@@ -408,6 +409,55 @@ const ForteCaseStudy: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WEBSITE PLATFORM SCREENSHOTS - 3 SIDE BY SIDE */}
+        <section className="bg-gradient-to-br from-teal-50 to-blue-50 py-12 md:py-24">
+          <div className="w-full px-4 md:px-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-xl md:text-3xl font-black uppercase text-gray-900">
+                Digital Platform Showcase
+              </h2>
+              <p className="mt-3 md:mt-4 text-sm md:text-base text-gray-600 px-2">
+                Full-page captures of our healthcare platform designed for patient booking and care
+              </p>
+            </div>
+
+            <div className="mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full">
+              {[
+                {
+                  label: "Patient Portal",
+                  src: "/images/hg.png",
+                },
+                {
+                  label: "Booking System",
+                  src: "/images/d.png",
+                },
+                {
+                  label: "Care Dashboard",
+                  src: "/images/s.png",
+                },
+              ].map((shot, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.2 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
+                >
+                  
+                  <motion.img
+                    src={shot.src}
+                    alt={shot.label}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>

@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Footer from "@/components/sections/Footer";
-
-
 
 type RecentWorkItem = {
   title: string;
@@ -19,7 +18,8 @@ const recentWork: RecentWorkItem[] = [
   {
     title: "Ron Basra – Listing Videos",
     category: "Real Estate",
-    image: "/images/ron-basra-cover-2.jpg",
+    image:
+      "https://i.pinimg.com/736x/40/81/a5/4081a521980faf09cab317aed496fa77.jpg",
   },
   {
     title: "Ron Basra – Brand Refresh",
@@ -36,56 +36,105 @@ const recentWork: RecentWorkItem[] = [
 const RonBasraCaseStudy: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.instagram.com/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
+  // -- inside your component file (keep "use client")
+useEffect(() => {
+  const ensureEmbedStyles = (root: Element | Document = document) => {
+    // find iframe inserted by Instagram embed
+    const iframe = root.querySelector<HTMLIFrameElement>(".instagram-media iframe, iframe[src*='instagram.com']");
+    if (iframe) {
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.maxHeight = "100%";
+      iframe.style.display = "block";
+      iframe.style.border = "0";
+      // some embedded iframes are wrapped; make sure parents also stretch
+      let parent = iframe.parentElement;
+      while (parent && parent !== document.body) {
+        (parent as HTMLElement).style.height = "100%";
+        (parent as HTMLElement).style.width = "100%";
+        parent = parent.parentElement;
+      }
+    }
+  };
+
+  // load script if missing
+  if (!document.querySelector('script[src="https://www.instagram.com/embed.js"]')) {
+    const s = document.createElement("script");
+    s.src = "https://www.instagram.com/embed.js";
+    s.async = true;
+    s.onload = () => {
+      // process blockquotes to inject iframe
+      try {
+        (window as any).instgrm?.Embeds?.process?.();
+      } catch {}
+      // then apply styles so it fills the aspect box
+      ensureEmbedStyles();
+      // small timeout in case Instagram injects later
+      setTimeout(() => ensureEmbedStyles(), 300);
+    };
+    document.body.appendChild(s);
+  } else {
+    // script already present — make sure embed is processed & styled
+    try {
+      (window as any).instgrm?.Embeds?.process?.();
+    } catch {}
+    ensureEmbedStyles();
+    setTimeout(() => ensureEmbedStyles(), 300);
+  }
+}, []);
+ 
 
   const handleNext = () => {
     setCurrentSlide((prev) => (prev + 1) % recentWork.length);
   };
 
   const handlePrev = () => {
-    setCurrentSlide((prev) =>
-      prev === 0 ? recentWork.length - 1 : prev - 1
-    );
+    setCurrentSlide((prev) => (prev === 0 ? recentWork.length - 1 : prev - 1));
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-800" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
+    <div
+      className="min-h-screen bg-white text-gray-800"
+      style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+    >
       {/* HERO */}
       <main>
         <section className="border-b border-gray-100 bg-gradient-to-b from-white to-gray-50">
           <div className="mx-auto max-w-6xl px-4 pb-16 pt-14 md:pt-20">
             {/* tags */}
             <div className="mb-5 flex flex-wrap gap-2 text-[11px]">
-              {["Real Estate", "Social Media Marketing", "Content Strategy", "Instagram Growth"].map(
-                (tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-yellow-500/40 bg-yellow-500/10 px-3 py-1 font-medium" style={{ color: 'var(--accent)' }}
-                  >
-                    {tag}
-                  </span>
-                )
-              )}
+              {[
+                "Real Estate",
+                "Social Media Marketing",
+                "Content Strategy",
+                "Instagram Growth",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-yellow-500/40 bg-yellow-500/10 px-3 py-1 font-medium"
+                  style={{ color: "var(--accent)" }}
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
 
             {/* title + subtitle */}
             <div className="space-y-4 md:flex md:flex-row md:items-end md:justify-between md:space-y-0">
               <div className="max-w-3xl">
-                <h1 className="text-3xl font-black leading-tight tracking-tight md:text-5xl" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                <h1
+                  className="text-3xl font-black leading-tight tracking-tight md:text-5xl"
+                  style={{ fontFamily: "var(--font-space-grotesk)" }}
+                >
                   Ron Basra Real Estate:
-                  <span className="block" style={{ color: 'var(--accent)' }}>
+                  <span className="block" style={{ color: "var(--accent)" }}>
                     1 year of social media–driven growth
                   </span>
                 </h1>
                 <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-600 md:text-base">
                   A case study on how consistent Instagram strategy, production,
-                  and scheduling helped a Vancouver real estate brand close more
-                  deals and stay top-of-mind with buyers and sellers.
+                  and scheduling helped a Vancouver real estate brand close
+                  more deals and stay top-of-mind with buyers and sellers.
                 </p>
               </div>
 
@@ -104,43 +153,41 @@ const RonBasraCaseStudy: React.FC = () => {
             </div>
 
             {/* hero image */}
-           <div className="relative mt-10 overflow-hidden rounded-3xl border border-gray-200 bg-gray-50/80 shadow-[0_0_60px_-30px_rgba(251,146,60,0.3)]">
-  {/* Aspect-ratio wrapper */}
-  <div className="relative w-full aspect-[16/9]">
-    {/* Video background */}
-    <video
-      src="https://digital-agency.takkar.ooo/RBF.mp4"
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="absolute inset-0 h-full w-full object-cover"
-    />
+            <div className="relative mt-10 overflow-hidden rounded-3xl border border-gray-200 bg-gray-50/80 shadow-[0_0_60px_-30px_rgba(251,146,60,0.3)]">
+              {/* Aspect-ratio wrapper */}
+              <div className="relative w-full aspect-[16/9]">
+                {/* Video background */}
+                <video
+                  src="https://digital-agency.takkar.ooo/RBF.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
 
-    {/* Overlay */}
-    <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-white/30 via-white/10 to-transparent p-6">
-      <div className="space-y-1">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: 'var(--accent)' }}>
-          {/* Case Study */}
-        </p>
-        <p className="text-sm text-gray-800 md:text-base">
-          {/* Instagram-first storytelling for listings, neighbourhoods,
-          and the Ron Basra brand. */}
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+                {/* Overlay */}
+                <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-white/30 via-white/10 to-transparent p-6">
+                  <div className="space-y-1">
+                    <p
+                      className="text-xs font-semibold uppercase tracking-[0.18em]"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      {/* Case Study */}
+                    </p>
+                    <p className="text-sm text-gray-800 md:text-base">
+                      {/* Instagram-first storytelling for listings, neighbourhoods,
+                      and the Ron Basra brand. */}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* OVERVIEW */}
-        <section
-          id="overview"
-          className="border-b border-gray-100 bg-gray-50/60"
-        >
+        <section id="overview" className="border-b border-gray-100 bg-gray-50/60">
           <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-14 md:flex-row md:py-20">
             <div className="flex-1 space-y-4">
               <h2 className="text-xl font-semibold md:text-2xl">
@@ -154,7 +201,8 @@ const RonBasraCaseStudy: React.FC = () => {
                   href="https://old.ronbasra.com/"
                   target="_blank"
                   rel="noreferrer"
-                  className="underline decoration-yellow-400/60 underline-offset-4" style={{ color: 'var(--accent)' }}
+                  className="underline decoration-yellow-400/60 underline-offset-4"
+                  style={{ color: "var(--accent)" }}
                 >
                   outdated website
                 </a>{" "}
@@ -193,14 +241,15 @@ const RonBasraCaseStudy: React.FC = () => {
                 <ul className="mt-2 space-y-1 text-sm">
                   <li>
                     Instagram –{" "}
-                <a
-                  href="https://old.ronbasra.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline decoration-yellow-400/60 underline-offset-4" style={{ color: 'var(--accent)' }}
-                >
-                  outdated website
-                </a>
+                    <a
+                      href="https://old.ronbasra.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline decoration-yellow-400/60 underline-offset-4"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      outdated website
+                    </a>
                   </li>
                   <li>Website refresh</li>
                   <li>Email & WhatsApp follow-ups</li>
@@ -213,10 +262,16 @@ const RonBasraCaseStudy: React.FC = () => {
         {/* CHALLENGE */}
         <section className="border-b border-gray-100 bg-white">
           <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: 'var(--accent)' }}>
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.18em]"
+              style={{ color: "var(--accent)" }}
+            >
               • The Challenge
             </p>
-            <h2 className="mt-3 max-w-2xl text-xl font-semibold md:text-2xl" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+            <h2
+              className="mt-3 max-w-2xl text-xl font-semibold md:text-2xl"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
               Busy team, fragmented presence, and no clear content system.
             </h2>
             <p className="mt-5 max-w-3xl text-sm leading-relaxed text-gray-600 md:text-base">
@@ -231,17 +286,20 @@ const RonBasraCaseStudy: React.FC = () => {
         </section>
 
         {/* APPROACH */}
-        <section
-          id="approach"
-          className="border-b border-gray-100 bg-gray-50/80"
-        >
+        <section id="approach" className="border-b border-gray-100 bg-gray-50/80">
           <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: 'var(--accent)' }}>
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.18em]"
+              style={{ color: "var(--accent)" }}
+            >
               • Our Approach
             </p>
-            <h2 className="mt-3 max-w-2xl text-xl font-semibold md:text-2xl" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-              A done-for-you content engine built around the way team
-              already works.
+            <h2
+              className="mt-3 max-w-2xl text-xl font-semibold md:text-2xl"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              A done-for-you content engine built around the way team already
+              works.
             </h2>
             <p className="mt-5 max-w-3xl text-sm leading-relaxed text-gray-600 md:text-base">
               Instead of adding more tools and complexity, we designed a simple
@@ -283,38 +341,67 @@ const RonBasraCaseStudy: React.FC = () => {
                 </p>
               </div>
             </div>
+
+            {/* INSTAGRAM VIDEO EXAMPLE */}
+            <div className="mt-12">
+              <div className="text-center mb-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  Example: Instagram Content in Action
+                </h3>
+                <p className="text-sm text-gray-600">See how our content strategy comes to life in this featured reel</p>
+              </div>
+
+              <div className="max-w-2xl mx-auto">
+                {/* aspect box that iframe will fill */}
+                <div className="relative w-full aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden shadow-lg flex items-center justify-center">
+                  <blockquote
+                    className="instagram-media w-full h-full"
+                    data-instgrm-permalink="https://www.instagram.com/reel/DP2n9SqEcuC/"
+                    data-instgrm-version="14"
+                    style={{ width: "100%", height: "100%", margin: "0" }}
+                  >
+                    <a href="https://www.instagram.com/reel/DP2n9SqEcuC/">View this Reel on Instagram</a>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-
         {/* RESULTS */}
-        <section
-          id="results"
-          className="border-b border-gray-100 bg-gray-50/80"
-        >
+        <section id="results" className="border-b border-gray-100 bg-gray-50/80">
           <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: 'var(--accent)' }}>
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.18em]"
+              style={{ color: "var(--accent)" }}
+            >
               • The Result
             </p>
-            <h2 className="mt-3 max-w-2xl text-xl font-semibold md:text-2xl" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+            <h2
+              className="mt-3 max-w-2xl text-xl font-semibold md:text-2xl"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
               A channel that actually supports sales, not just vanity metrics.
             </h2>
             <p className="mt-5 max-w-3xl text-sm leading-relaxed text-gray-600 md:text-base">
               Over the course of one year, the Ron Basra team saw a steady
-              increase in qualified inquiries coming directly from Instagram:
-              more DMs, more website visits, and more conversations that turned
-              into showings.
+              increase in qualified inquiries coming directly from
+              Instagram: more DMs, more website visits, and more conversations
+              that turned into showings.
             </p>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-gray-600 md:text-base">
-              Most importantly, the content supported what already worked offline:
-              referrals and reputation. Social media became a proof point that
-              matched how clients already talked about the brand—and helped the
-              team close more deals.
+              Most importantly, the content supported what already worked
+              offline: referrals and reputation. Social media became a proof
+              point that matched how clients already talked about the brand—and
+              helped the team close more deals.
             </p>
 
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
               <div className="rounded-2xl border border-yellow-600/40 bg-yellow-600/5 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: 'var(--accent)' }}>
+                <p
+                  className="text-xs font-semibold uppercase tracking-[0.16em]"
+                  style={{ color: "var(--accent)" }}
+                >
                   Outcome
                 </p>
                 <p className="mt-2 text-sm text-gray-800">
@@ -341,6 +428,46 @@ const RonBasraCaseStudy: React.FC = () => {
                 </p>
               </div>
             </div>
+
+            {/* RESULTS VISUALS - 2 SIDE BY SIDE */}
+            <div className="mt-12">
+              <div className="text-center mb-8">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Results in Action</h3>
+                <p className="text-sm text-gray-600">See the transformation and growth metrics from our social media strategy</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full">
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
+                >
+                  <motion.img
+                    src="/images/B1.png"
+                    alt="Instagram Growth Funnel"
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
+                >
+                  <motion.img
+                    src="/images/B2.png"
+                    alt="Brand Refresh Results"
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -354,13 +481,15 @@ const RonBasraCaseStudy: React.FC = () => {
               <div className="flex gap-2">
                 <button
                   onClick={handlePrev}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600"
+                  style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
                 >
                   ←
                 </button>
                 <button
                   onClick={handleNext}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600"
+                  style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
                 >
                   →
                 </button>
@@ -397,11 +526,56 @@ const RonBasraCaseStudy: React.FC = () => {
           </div>
         </section>
 
+        {/* DIGITAL ASSETS - 3 SIDE BY SIDE */}
+        <section className="bg-[#fef3c7] py-12 md:py-24">
+          <div className="w-full px-4 md:px-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-xl md:text-3xl font-black uppercase">
+                OUR WEBSITE
+              </h2>
+              <p className="mt-3 md:mt-4 text-sm md:text-base text-neutral-600 px-2">
+                Full-page captures of our real estate marketing platform designed for property showcase
+              </p>
+            </div>
+
+            <div className="mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full">
+              {[
+                {
+                  label: "Marketing Platform",
+                  src: "/images/ML.png",
+                },
+                {
+                  label: "Homepage Design",
+                  src: "/images/homepage.png",
+                },
+                {
+                  label: "Office Platform",
+                  src: "/images/office.png",
+                },
+              ].map((shot, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.2 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
+                >
+                  <motion.img
+                    src={shot.src}
+                    alt={shot.label}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
-        <section
-          id="contact"
-          className="bg-gradient-to-b from-white to-gray-50"
-        >
+        <section id="contact" className="bg-gradient-to-b from-white to-gray-50">
           <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-16 md:flex-row md:items-center md:justify-between md:py-20">
             <div className="max-w-xl space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: 'var(--accent)' }}>
@@ -427,17 +601,20 @@ const RonBasraCaseStudy: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Name"
-                  className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none placeholder:text-gray-500" style={{ borderColor: 'var(--accent)' }}
+                  className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none placeholder:text-gray-500"
+                  style={{ borderColor: 'var(--accent)' }}
                 />
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none placeholder:text-gray-500" style={{ borderColor: 'var(--accent)' }}
+                  className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none placeholder:text-gray-500"
+                  style={{ borderColor: 'var(--accent)' }}
                 />
                 <textarea
                   placeholder="Tell me about your project..."
                   rows={3}
-                  className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none placeholder:text-gray-500" style={{ borderColor: 'var(--accent)' }}
+                  className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none placeholder:text-gray-500"
+                  style={{ borderColor: 'var(--accent)' }}
                 />
                 <button
                   type="submit"

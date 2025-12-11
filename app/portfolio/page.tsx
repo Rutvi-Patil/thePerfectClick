@@ -171,7 +171,7 @@ function PortfolioPage() {
                   Sample listing value in recent Medallion-built communities.
                 </div>
                 <Link 
-                  href="/portfolio/medallion" 
+                  href="/portfolio/medallion-homes" 
                   className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
                 >
                   View Full Case Study →
