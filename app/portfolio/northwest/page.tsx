@@ -43,6 +43,7 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
               --handle-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             }
             
+            
             img-comparison-slider::part(divider) {
               background-color: var(--divider-color);
               width: var(--divider-width);

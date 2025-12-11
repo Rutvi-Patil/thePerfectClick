@@ -133,20 +133,20 @@ function PortfolioPage() {
             </div>
 
             <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
-              <img
-                src="https://placehold.co/800x530/00BCD4/FFFFFF?text=Aura+App+Interface"
-                alt="Mobile banking interface showing investment data."
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                controls
                 className="w-full lg:h-[500px] h-64 object-cover block"
-              />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-100 p-4 rounded-lg lg:w-[300px] w-[280px] flex flex-col gap-2.5">
-                <div className="flex justify-between w-full lg:text-base text-sm text-gray-600">
-                  <span>Sustainable Fund A</span>
-                  <span className="font-bold">75% Funded</span>
-                </div>
-                <div className="w-full h-2 bg-gray-200 rounded overflow-hidden">
-                  <div className="w-3/4 h-full bg-cyan-500" />
-                </div>
-              </div>
+              >
+                <source
+                  src="https://r2-northwest.takkar.ooo/forte-hero.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </section>
