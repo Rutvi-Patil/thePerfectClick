@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { Trees, Frame, Home, Utensils, HardHat, Clipboard, Hammer, Key, Star } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/sections/Footer";
+import AnimatedSection from "@/components/AnimatedSection";
 
 type Project = {
   title: string;
@@ -19,7 +20,7 @@ type Project = {
 type Material = {
   name: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
   features: string[];
 };
 
@@ -97,25 +98,25 @@ const materials: Material[] = [
   {
     name: "Premium Hardwood",
     description: "Sustainably sourced hardwood flooring with lifetime warranty",
-    icon: "🌳",
+    icon: <Trees className="w-8 h-8" />,
     features: ["Oak & Maple Options", "Sustainable Sourcing", "25-Year Warranty", "Custom Finishes"]
   },
   {
     name: "Energy-Efficient Windows",
     description: "Triple-pane windows with superior insulation and UV protection",
-    icon: "🪟",
+    icon: <Frame className="w-8 h-8" />,
     features: ["Triple-Pane Glass", "Low-E Coating", "Energy Star Rated", "Sound Reduction"]
   },
   {
     name: "Smart Home Integration",
     description: "Cutting-edge home automation and security systems",
-    icon: "🏠",
+    icon: <Home className="w-8 h-8" />,
     features: ["Voice Control", "Mobile App", "Security Integration", "Energy Monitoring"]
   },
   {
     name: "Luxury Kitchen Packages",
     description: "High-end appliances and custom cabinetry solutions",
-    icon: "🍳",
+    icon: <Utensils className="w-8 h-8" />,
     features: ["Wolf & Sub-Zero", "Custom Cabinetry", "Quartz Countertops", "Smart Appliances"]
   }
 ];
@@ -166,7 +167,7 @@ const testimonials: Testimonial[] = [
     name: "David Chen",
     location: "Richmond Hill, ON",
     rating: 5,
-    text: "The second story addition was seamless. You can't even tell it wasn't part of the original house. The team was professional, on time, and within budget.",
+    text: "The second story addition was seamless. You can't even tell it wasn't part of original house. The team was professional, on time, and within budget.",
     project: "Home Addition - 1,200 sq ft",
     beforeAfter: true
   },
@@ -174,7 +175,7 @@ const testimonials: Testimonial[] = [
     name: "Jennifer & Robert Martinez",
     location: "Markham, ON",
     rating: 5,
-    text: "Our kitchen renovation completely transformed our home. The design team understood our style perfectly and the execution was flawless. We couldn't be happier!",
+    text: "Our kitchen renovation completely transformed our home. The design team understood our style perfectly and execution was flawless. We couldn't be happier!",
     project: "Kitchen Renovation",
     beforeAfter: true
   }
@@ -241,11 +242,11 @@ const MedallionHomesCaseStudy: React.FC = () => {
               <span className="uppercase font-medium text-[10px] md:text-[11px] tracking-[0.25em] text-amber-400 mb-3 md:mb-4 animate-fadeInUp">
                 Case study
               </span>
-              <h1 className="font-black text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] xl:text-[72px] leading-tight uppercase max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl text-white animate-fadeInUp" 
-                  style={{ fontFamily: 'var(--font-space-grotesk)', animationDelay: '0.2s' }}>
-                Medallion <br className="block sm:hidden" />
-                Homes
-              </h1>
+            <h1 className="font-black text-[20px] xs:text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] xl:text-[72px] leading-tight uppercase max-w-[280px] xs:max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl text-white animate-fadeInUp" 
+                style={{ fontFamily: 'var(--font-space-grotesk)', animationDelay: '0.2s' }}>
+              Medallion <br className="block xs:hidden" />
+              Homes
+            </h1>
             </div>
 
             {/* Bottom Marquee (Mobile) */}
@@ -274,7 +275,7 @@ const MedallionHomesCaseStudy: React.FC = () => {
                   Building Dreams for Over 25 Years
                 </h2>
                 <p className="text-lg text-gray-600 mb-6">
-                  Medallion Homes is a family-owned custom home building company serving the Greater Toronto Area for over 25 years. Specializing in luxury custom homes, renovations, and additions, we bring dreams to life with exceptional craftsmanship and attention to detail.
+                  Medallion Homes is a family-owned custom home building company serving Greater Toronto Area for over 25 years. Specializing in luxury custom homes, renovations, and additions, we bring dreams to life with exceptional craftsmanship and attention to detail.
                 </p>
                 <p className="text-lg text-gray-600 mb-8">
                   From concept to completion, our team works closely with clients to create spaces that reflect their unique lifestyle and vision. We pride ourselves on quality construction, innovative design, and lasting relationships with our clients.
@@ -308,69 +309,6 @@ const MedallionHomesCaseStudy: React.FC = () => {
             </div>
           </div>
         </section>
-
-        {/* SPLIT-SCREEN HERO WITH STATS
-        <section className="py-20 bg-gray-50">
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="grid gap-16 md:grid-cols-2 items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 md:text-4xl mb-6" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                  Trusted GTA Custom Home Builder
-                </h2>
-                <p className="text-lg text-gray-600 mb-8">
-                  Medallion Homes is a family-owned custom home building company serving the Greater Toronto Area for over 25 years. We've completed over 500 luxury homes and renovations across 15+ GTA neighborhoods, earning our reputation as the region's most trusted custom home builder.
-                </p>
-                
-                <div className="grid gap-6 sm:grid-cols-3 mb-8">
-                  <div className="text-center">
-                    <div className="text-4xl font-black text-amber-600 mb-2" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                      {animatedStats.years}+
-                    </div>
-                    <div className="text-sm text-gray-600">Years Experience</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-black text-amber-600 mb-2" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                      {animatedStats.homes}+
-                    </div>
-                    <div className="text-sm text-gray-600">Homes Built</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-black text-amber-600 mb-2" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                      {animatedStats.neighborhoods}+
-                    </div>
-                    <div className="text-sm text-gray-600">GTA Neighborhoods</div>
-                  </div>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="flex items-center gap-3">
-                    <div className="h-2 w-2 bg-amber-600 rounded-full"></div>
-                    <span className="text-gray-700">Family-Owned Business</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="h-2 w-2 bg-amber-600 rounded-full"></div>
-                    <span className="text-gray-700">Licensed & Insured</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="h-2 w-2 bg-amber-600 rounded-full"></div>
-                    <span className="text-gray-700">Premium Materials</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="h-2 w-2 bg-amber-600 rounded-full"></div>
-                    <span className="text-gray-700">Lifetime Warranty</span>
-                  </div>
-                </div>
-              </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"
-                  alt="Medallion Homes Project"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section> */}
 
         {/* INTERACTIVE PROJECT TIMELINE */}
         <section className="py-20 bg-white">
@@ -414,7 +352,7 @@ const MedallionHomesCaseStudy: React.FC = () => {
                     <img 
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -458,19 +396,19 @@ const MedallionHomesCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 md:gap-8 md:grid-cols-2">
               {materials.map((material, index) => (
-                <div key={index} className="group rounded-2xl bg-gray-50 p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-100 text-3xl group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <div key={index} className="group rounded-2xl bg-gray-50 p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-xl sm:rounded-2xl bg-amber-100 text-2xl sm:text-3xl group-hover:bg-amber-600 group-hover:text-white transition-colors">
                       {material.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{material.name}</h3>
-                      <p className="text-gray-600 mb-4">{material.description}</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{material.name}</h3>
+                      <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">{material.description}</p>
                       <div className="grid gap-2 sm:grid-cols-2">
                         {material.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+                          <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
                             <div className="h-1.5 w-1.5 bg-amber-600 rounded-full"></div>
                             {feature}
                           </div>
@@ -503,7 +441,7 @@ const MedallionHomesCaseStudy: React.FC = () => {
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 md:text-4xl mb-4" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                Serving the Greater Toronto Area
+                Serving Greater Toronto Area
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Proudly building and renovating homes across GTA's finest neighborhoods
@@ -556,50 +494,50 @@ const MedallionHomesCaseStudy: React.FC = () => {
               {/* Progress Line */}
               <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-amber-200 -translate-y-1/2"></div>
               
-              <div className="grid gap-8 md:grid-cols-4">
+              <div className="grid gap-6 sm:gap-8 md:grid-cols-4">
                 {[
                   { 
                     step: "01", 
                     title: "Discovery & Design", 
                     description: "Initial consultation, site analysis, and architectural design development",
                     timeframe: "2-4 weeks",
-                    icon: "🏗️"
+                    icon: <HardHat className="w-6 h-6 sm:w-8 sm:h-8" />
                   },
                   { 
                     step: "02", 
                     title: "Permits & Planning", 
                     description: "Building permits, material selection, and detailed construction scheduling",
                     timeframe: "4-6 weeks",
-                    icon: "📋"
+                    icon: <Clipboard className="w-6 h-6 sm:w-8 sm:h-8" />
                   },
                   { 
                     step: "03", 
                     title: "Construction", 
                     description: "Foundation work, framing, roofing, and interior finishing",
                     timeframe: "6-12 months",
-                    icon: "🔨"
+                    icon: <Hammer className="w-6 h-6 sm:w-8 sm:h-8" />
                   },
                   { 
                     step: "04", 
                     title: "Handover & Warranty", 
                     description: "Final inspection, client orientation, and warranty activation",
                     timeframe: "1-2 weeks",
-                    icon: "🔑"
+                    icon: <Key className="w-6 h-6 sm:w-8 sm:h-8" />
                   }
                 ].map((item, index) => (
                   <div key={index} className="relative">
                     <div className="text-center">
-                      <div className="mb-6 relative">
-                        <div className="flex h-20 w-20 sm:h-24 sm:w-24 mx-auto items-center justify-center rounded-full bg-amber-600 text-white text-3xl sm:text-4xl shadow-lg">
+                      <div className="mb-4 sm:mb-6 relative">
+                        <div className="flex h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 mx-auto items-center justify-center rounded-full bg-amber-600 text-white text-2xl sm:text-3xl md:text-4xl shadow-lg">
                           {item.icon}
                         </div>
-                        <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-amber-600 text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full">
                           {item.step}
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                      <p className="text-gray-600 text-sm mb-3">{item.description}</p>
-                      <div className="inline-flex items-center gap-2 bg-amber-50 px-3 py-1 rounded-full">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">{item.description}</p>
+                      <div className="inline-flex items-center gap-2 bg-amber-50 px-2 sm:px-3 py-1 rounded-full">
                         <div className="h-2 w-2 bg-amber-600 rounded-full"></div>
                         <span className="text-xs font-medium text-amber-700">{item.timeframe}</span>
                       </div>
@@ -649,7 +587,7 @@ const MedallionHomesCaseStudy: React.FC = () => {
                     <img 
                       src={style.image}
                       alt={style.style}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="p-6 bg-white">
@@ -682,25 +620,25 @@ const MedallionHomesCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-6 md:gap-8 md:grid-cols-3">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className={`rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 ${
+                  className={`rounded-2xl bg-white p-4 sm:p-6 md:p-8 shadow-lg transition-all duration-300 ${
                     activeTestimonial === index ? 'ring-2 ring-amber-600 shadow-xl' : ''
                   }`}
                   onClick={() => setActiveTestimonial(index)}
                 >
-                  <div className="flex mb-4">
+                  <div className="flex mb-3 sm:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="text-yellow-400 text-xl">★</span>
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
-                  <div className="border-t pt-4">
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600 mb-2">{testimonial.location}</div>
-                    <div className="text-sm font-medium text-amber-600">{testimonial.project}</div>
+                  <p className="text-gray-700 mb-4 sm:mb-6 italic text-sm sm:text-base">"{testimonial.text}"</p>
+                  <div className="border-t pt-3 sm:pt-4">
+                    <div className="font-semibold text-gray-900 text-sm sm:text-base">{testimonial.name}</div>
+                    <div className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2">{testimonial.location}</div>
+                    <div className="text-xs sm:text-sm font-medium text-amber-600">{testimonial.project}</div>
                   </div>
                 </div>
               ))}
@@ -789,23 +727,17 @@ const MedallionHomesCaseStudy: React.FC = () => {
                   src: "/images/pro.png",
                 },
               ].map((shot, i) => (
-                <motion.div
+                <AnimatedSection
                   key={i}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  delay={i * 0.2}
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
-                  
-                  <motion.img
+                  <img
                     src={shot.src}
                     alt={shot.label}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-auto object-cover"
                   />
-                </motion.div>
+                </AnimatedSection>
               ))}
             </div>
           </div>
@@ -823,49 +755,49 @@ const MedallionHomesCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            <div className="rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 p-6 sm:p-8 md:p-12 shadow-xl">
-              <form className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 p-4 sm:p-6 md:p-8 lg:p-12 shadow-xl">
+              <form className="space-y-4 sm:space-y-6">
+                <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">First Name</label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors text-sm sm:text-base"
                       placeholder="John"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Last Name</label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors text-sm sm:text-base"
                       placeholder="Smith"
                     />
                   </div>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Email</label>
                     <input 
                       type="email" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors text-sm sm:text-base"
                       placeholder="john@example.com"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Phone</label>
                     <input 
                       type="tel" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors text-sm sm:text-base"
                       placeholder="(416) 555-0123"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Project Type</label>
-                  <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Project Type</label>
+                  <select className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors text-sm sm:text-base">
                     <option>Select a project type</option>
                     <option>Custom Home</option>
                     <option>Home Addition</option>
@@ -877,8 +809,8 @@ const MedallionHomesCaseStudy: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Timeline</label>
-                  <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Preferred Timeline</label>
+                  <select className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors text-sm sm:text-base">
                     <option>Select timeline</option>
                     <option>ASAP</option>
                     <option>3-6 months</option>
@@ -889,43 +821,43 @@ const MedallionHomesCaseStudy: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Tell us about your dream project</label>
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Tell us about your dream project</label>
                   <textarea 
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors"
+                    rows={3}
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-amber-600 focus:ring-2 focus:ring-amber-200 transition-colors text-sm sm:text-base"
                     placeholder="Describe your vision, style preferences, budget range, or any specific requirements..."
                   ></textarea>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-2 sm:gap-3">
                   <input 
                     type="checkbox" 
                     id="newsletter"
-                    className="mt-1 h-4 w-4 text-amber-600 border-gray-300 rounded focus:ring-amber-500"
+                    className="mt-0.5 sm:mt-1 h-3 w-3 sm:h-4 sm:w-4 text-amber-600 border-gray-300 rounded focus:ring-amber-500"
                   />
-                  <label htmlFor="newsletter" className="text-sm text-gray-600">
+                  <label htmlFor="newsletter" className="text-xs sm:text-sm text-gray-600 leading-tight sm:leading-normal">
                     I'd like to receive design inspiration and project updates from Medallion Homes
                   </label>
                 </div>
 
-                <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="flex flex-col gap-3 sm:gap-4">
                   <button 
                     type="submit"
-                    className="flex-1 rounded-full bg-amber-600 px-8 py-4 text-base font-semibold text-white hover:bg-amber-700 transition-colors shadow-lg"
+                    className="w-full sm:flex-1 rounded-full bg-amber-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white hover:bg-amber-700 transition-colors shadow-lg"
                   >
                     Schedule Free Consultation
                   </button>
                   <button 
                     type="button"
-                    className="rounded-full border-2 border-amber-600 px-8 py-4 text-base font-semibold text-amber-600 hover:bg-amber-50 transition-colors"
+                    className="w-full sm:flex-1 rounded-full border-2 border-amber-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-amber-600 hover:bg-amber-50 transition-colors"
                   >
                     Download Portfolio
                   </button>
                 </div>
               </form>
 
-              <div className="mt-8 text-center">
-                <p className="text-sm text-gray-600">
+              <div className="mt-6 sm:mt-8 text-center">
+                <p className="text-xs sm:text-sm text-gray-600">
                   <span className="font-medium">Response time:</span> Within 24 hours • 
                   <span className="font-medium"> Free consultation</span> • 
                   <span className="font-medium"> No obligation</span>

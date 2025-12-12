@@ -1,100 +1,8 @@
-"use client";
-
 import React from "react";
-import { ImgComparisonSlider } from '@img-comparison-slider/react'; 
-
-import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/sections/Footer";
-
-
-type BeforeAfterSliderProps = {
-  beforeImage: string;
-  afterImage: string;
-  beforeLabel?: string;
-  afterLabel?: string;
-};
-
-const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
-  beforeImage,
-  afterImage,
-  beforeLabel = "Before",
-  afterLabel = "After",
-}) => {
-  return (
-    <section className="bg-[#f4f6f8] text-black py-12 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <div className="mb-8 md:mb-10 text-center">
-          <h2 className="text-xl md:text-3xl font-black uppercase leading-tight">
-            Website walkthrough<br className="md:hidden" /> – before / after
-          </h2>
-          <p className="mt-3 md:mt-4 text-sm md:text-base text-neutral-600 max-w-2xl mx-auto px-2">
-            Drag handle to compare old Northwest website with new experience.
-          </p>
-        </div>
-
-        <div className="relative w-full rounded-xl md:rounded-2xl overflow-hidden shadow-lg md:shadow-xl">
-          <style jsx>{`
-            img-comparison-slider {
-              --divider-width: 3px;
-              --divider-color: #ffffff;
-              --handle-size: 40px;
-              --handle-color: #ffffff;
-              --handle-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-            
-            
-            img-comparison-slider::part(divider) {
-              background-color: var(--divider-color);
-              width: var(--divider-width);
-            }
-            
-            img-comparison-slider::part(handle) {
-              width: var(--handle-size);
-              height: var(--handle-size);
-              background-color: var(--handle-color);
-              border-radius: 50%;
-              box-shadow: var(--handle-shadow);
-              border: 2px solid #f4f6f8;
-            }
-
-            @media (max-width: 768px) {
-              img-comparison-slider {
-                --handle-size: 32px;
-              }
-            }
-          `}</style>
-          
-          <div className="aspect-[4/3] md:aspect-[16/9]">
-            <ImgComparisonSlider>
-              <img 
-                slot="first" 
-                src={beforeImage} 
-                alt={beforeLabel}
-                className="w-full h-full object-cover"
-              />
-              <img 
-                slot="second" 
-                src={afterImage} 
-                alt={afterLabel}
-                className="w-full h-full object-cover"
-              />
-            </ImgComparisonSlider>
-          </div>
-          
-          {/* Labels */}
-          <div className="pointer-events-none absolute top-3 md:top-4 left-3 md:left-4 px-2 md:px-3 py-1 rounded-full bg-black/60 text-xs font-semibold uppercase tracking-wide text-white">
-            {beforeLabel}
-          </div>
-          <div className="pointer-events-none absolute top-3 md:top-4 right-3 md:right-4 px-2 md:px-3 py-1 rounded-full bg-black/60 text-xs font-semibold uppercase tracking-wide text-white">
-            {afterLabel}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const NorthwestCaseStudy: React.FC = () => {
     // Gallery images data for easy maintenance
@@ -309,7 +217,7 @@ const NorthwestCaseStudy: React.FC = () => {
                   <img 
                     src={image.src} 
                     alt={image.alt} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   {/* <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -373,23 +281,17 @@ const NorthwestCaseStudy: React.FC = () => {
           src: "/images/oldP.png", // 👈 new full-page screenshot
         },
       ].map((shot, i) => (
-        <motion.div
+        <AnimatedSection
           key={i}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: i * 0.2 }}
-          viewport={{ once: true, amount: 0.3 }}
+          delay={i * 0.2}
           className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
         >
-          
-          <motion.img
+          <img
             src={shot.src}
             alt={shot.label}
-            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            className="w-full h-auto object-cover"
           />
-        </motion.div>
+        </AnimatedSection>
       ))}
     </div>
   </div>
@@ -418,23 +320,17 @@ const NorthwestCaseStudy: React.FC = () => {
                   src: "/images/projects.png",
                 },
               ].map((shot, i) => (
-                <motion.div
+                <AnimatedSection
                   key={i}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  delay={i * 0.2}
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
-
-                  <motion.img
+                  <img
                     src={shot.src}
                     alt={shot.label}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-auto object-cover"
                   />
-                </motion.div>
+                </AnimatedSection>
               ))}
             </div>
           </div>
@@ -467,23 +363,17 @@ const NorthwestCaseStudy: React.FC = () => {
                   src: "/images/plaza.png",
                 },
               ].map((shot, i) => (
-                <motion.div
+                <AnimatedSection
                   key={i}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  delay={i * 0.2}
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
-                  
-                  <motion.img
+                  <img
                     src={shot.src}
                     alt={shot.label}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-auto object-cover"
                   />
-                </motion.div>
+                </AnimatedSection>
               ))}
             </div>
           </div>
@@ -502,7 +392,7 @@ const NorthwestCaseStudy: React.FC = () => {
                   <img
                     src="https://s3.ap-south-1.amazonaws.com/awsimages.imagesbazaar.com/1200x1800-old/21364/SM1113665.jpg?date=Thu%20Dec%2004%202025%2021:19:34%20GMT+0530%20(India%20Standard%20Time)"
                     alt="Another project"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/30" />
                 </div>
@@ -527,7 +417,7 @@ const NorthwestCaseStudy: React.FC = () => {
                   <img
                     src="https://s3.ap-south-1.amazonaws.com/awsimages.imagesbazaar.com/1200x1800-old/18251/ES794681.jpg?date=Thu%20Dec%2004%202025%2021:18:47%20GMT+0530%20(India%20Standard%20Time)"
                     alt="Another project"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/30" />
                 </div>

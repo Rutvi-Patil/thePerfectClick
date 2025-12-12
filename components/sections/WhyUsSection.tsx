@@ -66,7 +66,7 @@ export default function WhyUsSection() {
           <div className="relative group cursor-pointer">
             {/* Main Black Circle */}
             <div 
-              className="w-24 h-24 lg:w-28 lg:h-28 bg-black rounded-full flex items-center justify-center transition-all duration-300 shadow-xl group-hover:scale-110 group-hover:shadow-2xl"
+              className="w-24 h-24 lg:w-28 lg:h-28 bg-black rounded-full flex items-center justify-center transition-all duration-300 shadow-xl"
               style={{
                 background: 'radial-gradient(circle at 30% 30%, #2a2a2a, #000000)'
               }}

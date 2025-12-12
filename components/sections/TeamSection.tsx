@@ -132,7 +132,7 @@ export default function TeamSection() {
                 <img
                   src={portrait.image}
                   alt={portrait.alt}
-                  className="w-full h-full object-cover filter grayscale contrast-125 transition-all duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover filter grayscale contrast-125 transition-all duration-300"
                   style={{
                     filter: 'grayscale(100%) contrast(1.25)',
                   }}

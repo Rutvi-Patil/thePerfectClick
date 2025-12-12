@@ -1,7 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+
+import React, { useState } from "react";
 import Footer from "@/components/sections/Footer";
+import InstagramEmbed from "@/components/InstagramEmbed";
+import AnimatedSection from "@/components/AnimatedSection";
 
 type RecentWorkItem = {
   title: string;
@@ -35,54 +37,6 @@ const recentWork: RecentWorkItem[] = [
 
 const RonBasraCaseStudy: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  // -- inside your component file (keep "use client")
-useEffect(() => {
-  const ensureEmbedStyles = (root: Element | Document = document) => {
-    // find iframe inserted by Instagram embed
-    const iframe = root.querySelector<HTMLIFrameElement>(".instagram-media iframe, iframe[src*='instagram.com']");
-    if (iframe) {
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.maxHeight = "100%";
-      iframe.style.display = "block";
-      iframe.style.border = "0";
-      // some embedded iframes are wrapped; make sure parents also stretch
-      let parent = iframe.parentElement;
-      while (parent && parent !== document.body) {
-        (parent as HTMLElement).style.height = "100%";
-        (parent as HTMLElement).style.width = "100%";
-        parent = parent.parentElement;
-      }
-    }
-  };
-
-  // load script if missing
-  if (!document.querySelector('script[src="https://www.instagram.com/embed.js"]')) {
-    const s = document.createElement("script");
-    s.src = "https://www.instagram.com/embed.js";
-    s.async = true;
-    s.onload = () => {
-      // process blockquotes to inject iframe
-      try {
-        (window as any).instgrm?.Embeds?.process?.();
-      } catch {}
-      // then apply styles so it fills the aspect box
-      ensureEmbedStyles();
-      // small timeout in case Instagram injects later
-      setTimeout(() => ensureEmbedStyles(), 300);
-    };
-    document.body.appendChild(s);
-  } else {
-    // script already present — make sure embed is processed & styled
-    try {
-      (window as any).instgrm?.Embeds?.process?.();
-    } catch {}
-    ensureEmbedStyles();
-    setTimeout(() => ensureEmbedStyles(), 300);
-  }
-}, []);
- 
 
   const handleNext = () => {
     setCurrentSlide((prev) => (prev + 1) % recentWork.length);
@@ -177,7 +131,7 @@ useEffect(() => {
                     </p>
                     <p className="text-sm text-gray-800 md:text-base">
                       {/* Instagram-first storytelling for listings, neighbourhoods,
-                      and the Ron Basra brand. */}
+                      and Ron Basra brand. */}
                     </p>
                   </div>
                 </div>
@@ -196,7 +150,7 @@ useEffect(() => {
               </h2>
               <p className="text-sm leading-relaxed text-gray-600 md:text-base">
                 Ron Basra already had a reputation in Vancouver real estate, but
-                the digital experience was split across an{" "}
+                digital experience was split across an{" "}
                 <a
                   href="https://old.ronbasra.com/"
                   target="_blank"
@@ -207,14 +161,14 @@ useEffect(() => {
                   outdated website
                 </a>{" "}
                 and inconsistent social content. The goal was simple:
-                centralize the story, modernize the visuals, and use Instagram
+                centralize story, modernize visuals, and use Instagram
                 as a primary channel to drive interest, property views, and
                 conversations.
               </p>
               <p className="text-sm leading-relaxed text-gray-600 md:text-base">
                 We directed, planned, scheduled, and shot video content for
                 Instagram—working across listings, behind-the-scenes, and
-                educational posts—so that the team could focus on what they do
+                educational posts—so that team could focus on what they do
                 best: closing deals.
               </p>
             </div>
@@ -278,7 +232,7 @@ useEffect(() => {
               The Ron Basra team juggles listings, showings, negotiations, and
               client relationships. Social media often became a "when we have
               time" activity. Content went out irregularly, visuals didn't
-              fully reflect the quality of the brand, and there was no
+              fully reflect quality of the brand, and there was no
               consistent narrative connecting listings, testimonials, and local
               expertise.
             </p>
@@ -352,17 +306,7 @@ useEffect(() => {
               </div>
 
               <div className="max-w-2xl mx-auto">
-                {/* aspect box that iframe will fill */}
-                <div className="relative w-full aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden shadow-lg flex items-center justify-center">
-                  <blockquote
-                    className="instagram-media w-full h-full"
-                    data-instgrm-permalink="https://www.instagram.com/reel/DP2n9SqEcuC/"
-                    data-instgrm-version="14"
-                    style={{ width: "100%", height: "100%", margin: "0" }}
-                  >
-                    <a href="https://www.instagram.com/reel/DP2n9SqEcuC/">View this Reel on Instagram</a>
-                  </blockquote>
-                </div>
+                <InstagramEmbed url="https://www.instagram.com/reel/DP2n9SqEcuC/" />
               </div>
             </div>
           </div>
@@ -390,7 +334,7 @@ useEffect(() => {
               that turned into showings.
             </p>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-gray-600 md:text-base">
-              Most importantly, the content supported what already worked
+              Most importantly, content supported what already worked
               offline: referrals and reputation. Social media became a proof
               point that matched how clients already talked about the brand—and
               helped the team close more deals.
@@ -433,39 +377,29 @@ useEffect(() => {
             <div className="mt-12">
               <div className="text-center mb-8">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Results in Action</h3>
-                <p className="text-sm text-gray-600">See the transformation and growth metrics from our social media strategy</p>
+                <p className="text-sm text-gray-600">See transformation and growth metrics from our social media strategy</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full">
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                <AnimatedSection
+                  delay={0.2}
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
-                  <motion.img
+                  <img
                     src="/images/B1.png"
                     alt="Instagram Growth Funnel"
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-auto object-cover"
                   />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                </AnimatedSection>
+                <AnimatedSection
+                  delay={0.4}
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
-                  <motion.img
+                  <img
                     src="/images/B2.png"
                     alt="Brand Refresh Results"
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-auto object-cover"
                   />
-                </motion.div>
+                </AnimatedSection>
               </div>
             </div>
           </div>
@@ -553,22 +487,17 @@ useEffect(() => {
                   src: "/images/office.png",
                 },
               ].map((shot, i) => (
-                <motion.div
+                <AnimatedSection
                   key={i}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  delay={i * 0.2}
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
-                  <motion.img
+                  <img
                     src={shot.src}
                     alt={shot.label}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-auto object-cover"
                   />
-                </motion.div>
+                </AnimatedSection>
               ))}
             </div>
           </div>

@@ -1,12 +1,13 @@
-"use client";
-
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
+import { Activity, Bone, Hospital, Heart, Target, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/sections/Footer";
+import InteractiveServiceCard from "@/components/InteractiveServiceCard";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
+import AnimatedSection from "@/components/AnimatedSection";
 
 type Service = {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
   features: string[];
@@ -29,37 +30,37 @@ type Testimonial = {
 
 const services: Service[] = [
   {
-    icon: "🏃‍♂️",
+    icon: <Activity className="w-8 h-8" />,
     title: "Sports Physiotherapy",
     description: "Specialized treatment for sports injuries and performance optimization",
     features: ["Injury Rehabilitation", "Performance Enhancement", "Prevention Programs", "Return to Sport Training"]
   },
   {
-    icon: "🦴",
+    icon: <Bone className="w-8 h-8" />,
     title: "Orthopaedic Physiotherapy",
     description: "Comprehensive care for musculoskeletal conditions and post-surgical recovery",
     features: ["Post-Surgical Rehab", "Joint Mobilization", "Manual Therapy", "Exercise Prescription"]
   },
   {
-    icon: "🏥",
+    icon: <Hospital className="w-8 h-8" />,
     title: "Pelvic Health",
     description: "Specialized physiotherapy for pelvic floor dysfunction and women's health",
     features: ["Pelvic Floor Rehab", "Prenatal/Postnatal Care", "Core Strengthening", "Bladder Health"]
   },
   {
-    icon: "💪",
+    icon: <Heart className="w-8 h-8" />,
     title: "Pain Management",
     description: "Evidence-based approaches to chronic and acute pain conditions",
     features: ["Manual Therapy", "Acupuncture", "Exercise Therapy", "Education & Self-Management"]
   },
   {
-    icon: "🎯",
+    icon: <Target className="w-8 h-8" />,
     title: "Vestibular Rehab",
     description: "Specialized treatment for dizziness, balance disorders, and vertigo",
     features: ["Balance Training", "Gaze Stabilization", "Habituation Exercises", "Fall Prevention"]
   },
   {
-    icon: "⚡",
+    icon: <Zap className="w-8 h-8" />,
     title: "Concussion Management",
     description: "Comprehensive assessment and treatment for concussion and head injuries",
     features: ["Baseline Testing", "Gradual Return Protocol", "Symptom Management", "Cognitive Rehab"]
@@ -92,7 +93,7 @@ const testimonials: Testimonial[] = [
     name: "James Mitchell",
     condition: "ACL Reconstruction",
     rating: 5,
-    text: "After my ACL surgery, the team at Forte got me back on the soccer field stronger than ever. Their personalized rehab program was incredible.",
+    text: "After my ACL surgery, team at Forte got me back on the soccer field stronger than ever. Their personalized rehab program was incredible.",
     result: "Returned to competitive sport in 6 months"
   },
   {
@@ -112,8 +113,6 @@ const testimonials: Testimonial[] = [
 ];
 
 const ForteCaseStudy: React.FC = () => {
-  const [selectedService, setSelectedService] = useState<number | null>(null);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   return (
     <div className="min-h-screen w-full bg-white text-[#0f1011]" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
@@ -163,12 +162,12 @@ const ForteCaseStudy: React.FC = () => {
               <span className="uppercase font-medium text-[10px] md:text-[11px] tracking-[0.25em] text-teal-400 mb-3 md:mb-4 animate-fadeInUp">
                 Case study
               </span>
-              <h1 className="font-black text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] xl:text-[72px] leading-tight uppercase max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl text-white animate-fadeInUp" 
-                  style={{ fontFamily: 'var(--font-space-grotesk)', animationDelay: '0.2s' }}>
-                Forte Sports & <br className="block sm:hidden" />
-                Orthopaedic <br className="block md:hidden" />
-                Physiotherapy
-              </h1>
+            <h1 className="font-black text-[20px] xs:text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] xl:text-[72px] leading-tight uppercase max-w-[280px] xs:max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl text-white animate-fadeInUp" 
+                style={{ fontFamily: 'var(--font-space-grotesk)', animationDelay: '0.2s' }}>
+              Forte Sports & <br className="block xs:hidden" />
+              Orthopaedic <br className="block sm:hidden" />
+              Physiotherapy
+            </h1>
             </div>
 
             {/* Bottom Marquee (Mobile) */}
@@ -200,43 +199,7 @@ const ForteCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className={`group rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer ${
-                    selectedService === index ? 'ring-2 ring-teal-600' : ''
-                  }`}
-                  onClick={() => setSelectedService(selectedService === index ? null : index)}
-                >
-                  <div className="mb-6">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-100 text-3xl group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                      {service.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  
-                  {selectedService === index && (
-                    <div className="mt-4 pt-4 border-t border-gray-200">
-                      <h4 className="font-semibold text-gray-900 mb-2">What we treat:</h4>
-                      <ul className="space-y-1">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-center text-sm text-gray-600">
-                            <span className="mr-2 text-teal-600">•</span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  
-                  <button className="mt-4 text-teal-600 font-semibold text-sm hover:text-teal-700">
-                    Learn more →
-                  </button>
-                </div>
-              ))}
-            </div>
+            <InteractiveServiceCard services={services} />
           </div>
         </section>
 
@@ -256,12 +219,12 @@ const ForteCaseStudy: React.FC = () => {
       </p>
     </div>
 
-    <div className="grid gap-16 md:grid-cols-3 place-items-center">
+    <div className="grid gap-8 sm:gap-12 md:gap-16 md:grid-cols-3 place-items-center">
       {teamMembers.map((member, index) => (
-        <div key={index} className="text-center group flex flex-col items-center">
+        <div key={index} className="text-center group flex flex-col items-center max-w-xs mx-auto">
 
           {/* Image container - portrait-friendly circle */}
-          <div className="mb-6 relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64">
+          <div className="mb-4 sm:mb-6 relative w-32 h-32 xs:w-40 xs:h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-400 to-blue-600 opacity-20 group-hover:opacity-30 transition-opacity"></div>
 
             <div className="relative rounded-full overflow-hidden border-4 border-white shadow-xl w-full h-full">
@@ -273,9 +236,9 @@ const ForteCaseStudy: React.FC = () => {
             </div>
           </div>
 
-          <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-          <p className="text-teal-600 font-semibold mb-2">{member.role}</p>
-          <p className="text-gray-600 text-sm">{member.expertise}</p>
+          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+          <p className="text-teal-600 font-semibold mb-1 sm:mb-2 text-sm sm:text-base">{member.role}</p>
+          <p className="text-gray-600 text-xs sm:text-sm">{member.expertise}</p>
         </div>
       ))}
     </div>
@@ -296,29 +259,7 @@ const ForteCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-3">
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className={`rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 ${
-                    activeTestimonial === index ? 'ring-2 ring-teal-600 shadow-xl' : ''
-                  }`}
-                  onClick={() => setActiveTestimonial(index)}
-                >
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="text-yellow-400 text-xl">★</span>
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
-                  <div className="border-t pt-4">
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600 mb-2">{testimonial.condition}</div>
-                    <div className="text-sm font-medium text-teal-600">{testimonial.result}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <TestimonialCarousel testimonials={testimonials} />
           </div>
         </section>
 
@@ -334,7 +275,7 @@ const ForteCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-4">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-4">
               {[
                 { step: "01", title: "Assessment", description: "Comprehensive evaluation of your condition and goals" },
                 { step: "02", title: "Diagnosis", description: "Clear explanation of your condition and treatment options" },
@@ -342,16 +283,13 @@ const ForteCaseStudy: React.FC = () => {
                 { step: "04", title: "Prevention", description: "Education and exercises to prevent future issues" }
               ].map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="mb-6 relative">
-                    <div className="flex h-20 w-20 mx-auto items-center justify-center rounded-full bg-teal-600 text-white text-2xl font-bold">
+                  <div className="mb-4 sm:mb-6 relative">
+                    <div className="flex h-16 w-16 sm:h-20 sm:w-20 mx-auto items-center justify-center rounded-full bg-teal-600 text-white text-lg sm:text-2xl font-bold">
                       {item.step}
                     </div>
-                    {index < 3 && (
-                      <div className="hidden md:block absolute top-10 left-full w-full h-0.5 bg-teal-200 -translate-x-1/2"></div>
-                    )}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -440,23 +378,17 @@ const ForteCaseStudy: React.FC = () => {
                   src: "/images/s.png",
                 },
               ].map((shot, i) => (
-                <motion.div
+                <AnimatedSection
                   key={i}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  delay={i * 0.2}
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
-                  
-                  <motion.img
+                  <img
                     src={shot.src}
                     alt={shot.label}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-auto object-cover"
                   />
-                </motion.div>
+                </AnimatedSection>
               ))}
             </div>
           </div>
