@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     siteName: 'The Perfect Click',
     images: [
       {
-        url: '/images/logo-yellow.png',
+        url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png',
         width: 1200,
         height: 630,
-        alt: 'The Perfect Click',
+        alt: 'The Perfect Click - Digital Agency',
       },
     ],
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Perfect Click',
     description: 'Award-winning digital agency creating exceptional digital experiences',
-    images: ['/images/logo-yellow.png'],
+    images: ['https://digital-agency.takkar.ooo/images/logo-yellow.png'],
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'The Perfect Click',
   url: 'https://theperfectclick.com',
-  logo: 'https://theperfectclick.com/images/logo-yellow.png',
+  logo: 'https://digital-agency.takkar.ooo/images/logo-yellow.png',
   description: 'Award-winning digital agency creating exceptional digital experiences',
   contactPoint: {
     '@type': 'ContactPoint',

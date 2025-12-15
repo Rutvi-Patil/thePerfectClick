@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com/portfolio/northwest',
     images: [
       {
-        url: '/images/NewF.png',
+        url: 'https://digital-agency.takkar.ooo/images/newF.png',
         width: 1200,
         height: 630,
         alt: 'Northwest Constructions - Website Redesign Case Study',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Northwest Constructions Case Study',
     description: 'How website redesign drove construction business success',
-    images: ['/images/NewF.png'],
+    images: ['https://digital-agency.takkar.ooo/images/newF.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com/portfolio/northwest',
@@ -74,7 +74,7 @@ const northwestCaseStudySchema = {
     name: 'The Perfect Click',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://theperfectclick.com/images/logo-yellow.png'
+      url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png'
     }
   },
   datePublished: '2024-01-01',
@@ -84,9 +84,9 @@ const northwestCaseStudySchema = {
     '@id': 'https://theperfectclick.com/portfolio/northwest'
   },
   image: [
-    'https://theperfectclick.com/images/NewF.png',
-    'https://theperfectclick.com/images/oldF.png',
-    'https://theperfectclick.com/images/NewWeb.png'
+    'https://digital-agency.takkar.ooo/images/newF.png',
+    'https://digital-agency.takkar.ooo/images/oldF.png',
+    'https://digital-agency.takkar.ooo/images/NewWeb.png'
   ],
   about: {
     '@type': 'Thing',
@@ -100,22 +100,22 @@ const NorthwestCaseStudy: React.FC = () => {
     // Gallery images data for easy maintenance
     const galleryImages = [
       {
-        src: "/images/img1 (2).jpeg",
+        src: "https://digital-agency.takkar.ooo/images/img1%20(2).jpeg",
         alt: "Homepage hero section",
         // title: "Homepage Hero"
       },
       {
-        src: "/images/img4.jpeg",
+        src: "https://digital-agency.takkar.ooo/images/img4.jpeg",
         alt: "Project showcase layout",
         // title: "Project Gallery"
       },
       {
-        src: "/images/img3.jpeg",
+        src: "https://digital-agency.takkar.ooo/images/img3.jpeg",
         alt: "Before redesign comparison",
         // title: "Before Design"
       },
       {
-        src: "/images/img2.jpeg",
+        src: "https://digital-agency.takkar.ooo/images/img2.jpeg",
         alt: "Project portfolio view",
         // title: "Portfolio View"
       }
@@ -293,8 +293,8 @@ const NorthwestCaseStudy: React.FC = () => {
 
           {/* VIDEO BEFORE / AFTER SLIDER */}
           <BeforeAfterSlider
-            beforeImage="/images/oldH.png"
-            afterImage="/images/NewF.png"
+            beforeImage="https://digital-agency.takkar.ooo/images/oldH.png"
+            afterImage="https://digital-agency.takkar.ooo/images/newF.png"
             beforeLabel="Old site"
             afterLabel="New site"
           />
@@ -373,11 +373,11 @@ const NorthwestCaseStudy: React.FC = () => {
       {[
         {
           label: "Old homepage",
-          src: "/images/oldF.png", // 👈 change to your real old screenshot
+          src: "https://digital-agency.takkar.ooo/images/oldF.png", // 👈 change to your real old screenshot
         },
         {
           label: "New homepage",
-          src: "/images/oldP.png", // 👈 new full-page screenshot
+          src: "https://digital-agency.takkar.ooo/images/oldP.png", // 👈 new full-page screenshot
         },
       ].map((shot, i) => (
         <AnimatedSection
@@ -412,11 +412,11 @@ const NorthwestCaseStudy: React.FC = () => {
               {[
                 {
                   label: "Mobile homepage",
-                  src: "/images/NewWeb.png",
+                  src: "https://digital-agency.takkar.ooo/images/NewWeb.png",
                 },
                 {
                   label: "Mobile projects view",
-                  src: "/images/projects.png",
+                  src: "https://digital-agency.takkar.ooo/images/projects.png",
                 },
               ].map((shot, i) => (
                 <AnimatedSection
@@ -451,15 +451,15 @@ const NorthwestCaseStudy: React.FC = () => {
               {[
                 {
                   label: "Projects page",
-                  src: "/images/spera.png",
+                  src: "https://digital-agency.takkar.ooo/images/spera.png",
                 },
                 {
                   label: "About us page", 
-                  src: "/images/avlon.png",
+                  src: "https://digital-agency.takkar.ooo/images/avlon.png",
                 },
                 {
                   label: "Contact page",
-                  src: "/images/plaza.png",
+                  src: "https://digital-agency.takkar.ooo/images/plaza.png",
                 },
               ].map((shot, i) => (
                 <AnimatedSection

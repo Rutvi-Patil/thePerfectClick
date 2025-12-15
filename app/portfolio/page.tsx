@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com/portfolio',
     images: [
       {
-        url: '/images/projects.png',
+        url: 'https://digital-agency.takkar.ooo/images/projects.png',
         width: 1200,
         height: 630,
         alt: 'The Perfect Click Portfolio - Web Design Case Studies',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Perfect Click Portfolio - Digital Agency Case Studies',
     description: 'View our award-winning web design and development projects',
-    images: ['/images/projects.png'],
+    images: ['https://digital-agency.takkar.ooo/images/projects.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com/portfolio',
@@ -62,35 +62,35 @@ const portfolioPageSchema = {
         name: 'Northwest Constructions Ltd.',
         description: 'Website redesign and digital transformation for Vancouver construction company',
         url: 'https://theperfectclick.com/portfolio/northwest',
-        image: 'https://theperfectclick.com/images/NewF.png'
+        image: 'https://digital-agency.takkar.ooo/images/NewF.png'
       },
       {
         '@type': 'Article',
         name: 'Ron Basra Real Estate Group',
         description: 'Instagram marketing and content strategy for Vancouver real estate',
         url: 'https://theperfectclick.com/portfolio/ron-basra',
-        image: 'https://theperfectclick.com/images/BR.png'
+        image: 'https://digital-agency.takkar.ooo/images/BR.png'
       },
       {
         '@type': 'Article',
         name: 'Forte Sports & Orthopaedic Physiotherapy',
         description: 'Website redesign for physiotherapy clinic',
         url: 'https://theperfectclick.com/portfolio/forte',
-        image: 'https://theperfectclick.com/images/funnel.png'
+        image: 'https://digital-agency.takkar.ooo/images/funnel.png'
       },
       {
         '@type': 'Article',
         name: 'Medallion Homes',
         description: 'Digital platform for luxury custom home builder',
         url: 'https://theperfectclick.com/portfolio/medallion-homes',
-        image: 'https://theperfectclick.com/images/mhp.png'
+        image: 'https://digital-agency.takkar.ooo/images/mhp.png'
       },
       {
         '@type': 'Article',
         name: 'Armaan Sandhu Real Estate',
         description: 'Digital marketing for real estate specialist',
         url: 'https://theperfectclick.com/portfolio/armaan-sandhu',
-        image: 'https://theperfectclick.com/images/projects.png'
+        image: 'https://digital-agency.takkar.ooo/images/projects.png'
       }
     ]
   },

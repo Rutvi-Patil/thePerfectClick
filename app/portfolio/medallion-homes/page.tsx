@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com/portfolio/medallion-homes',
     images: [
       {
-        url: '/images/mhp.png',
+        url: 'https://digital-agency.takkar.ooo/images/mhp.png',
         width: 1200,
         height: 630,
         alt: 'Medallion Homes - Custom Home Builder Case Study',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Medallion Homes Case Study',
     description: 'How digital transformation drove luxury construction success',
-    images: ['/images/mhp.png'],
+    images: ['https://digital-agency.takkar.ooo/images/mhp.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com/portfolio/medallion-homes',
@@ -224,7 +224,7 @@ const medallionHomesCaseStudySchema = {
     name: 'The Perfect Click',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://theperfectclick.com/images/logo-yellow.png'
+      url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png'
     }
   },
   datePublished: '2024-01-01',
@@ -234,9 +234,9 @@ const medallionHomesCaseStudySchema = {
     '@id': 'https://theperfectclick.com/portfolio/medallion-homes'
   },
   image: [
-    'https://theperfectclick.com/images/mhp.png',
-    'https://theperfectclick.com/images/prop.png',
-    'https://theperfectclick.com/images/pro.png'
+    'https://digital-agency.takkar.ooo/images/mhp.png',
+    'https://digital-agency.takkar.ooo/images/prop.png',
+    'https://digital-agency.takkar.ooo/images/pro.png'
   ],
   about: {
     '@type': 'Thing',
@@ -779,15 +779,15 @@ const MedallionHomesCaseStudy: React.FC = () => {
               {[
                 {
                   label: "Medallion Homes Platform",
-                  src: "/images/mhp.png",
+                  src: "https://digital-agency.takkar.ooo/images/mhp.png",
                 },
                 {
                   label: "Property Showcase",
-                  src: "/images/prop.png",
+                  src: "https://digital-agency.takkar.ooo/images/prop.png",
                 },
                 {
                   label: "Project Gallery",
-                  src: "/images/pro.png",
+                  src: "https://digital-agency.takkar.ooo/images/pro.png",
                 },
               ].map((shot, i) => (
                 <AnimatedSection

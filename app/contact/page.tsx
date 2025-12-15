@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com/contact',
     images: [
       {
-        url: '/images/office.png',
+        url: 'https://digital-agency.takkar.ooo/images/office.png',
         width: 1200,
         height: 630,
         alt: 'The Perfect Click - Contact Us',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Contact The Perfect Click',
     description: 'Ready to transform your digital presence? Get in touch with our team today.',
-    images: ['/images/office.png'],
+    images: ['https://digital-agency.takkar.ooo/images/office.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com/contact',
@@ -41,9 +41,9 @@ const localBusinessSchema = {
   url: 'https://theperfectclick.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://theperfectclick.com/images/logo-yellow.png'
+    url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png'
   },
-  image: 'https://theperfectclick.com/images/office.png',
+  image: 'https://digital-agency.takkar.ooo/images/office.png',
   telephone: '+1-555-0123',
   email: 'hello@theperfectclick.com',
   address: {

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com/portfolio/ron-basra',
     images: [
       {
-        url: '/images/BR.png',
+        url: 'https://digital-agency.takkar.ooo/images/BR.png',
         width: 1200,
         height: 630,
         alt: 'Ron Basra Real Estate - Digital Marketing Case Study',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ron Basra Real Estate Case Study',
     description: 'How strategic Instagram marketing drove real estate success',
-    images: ['/images/BR.png'],
+    images: ['https://digital-agency.takkar.ooo/images/BR.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com/portfolio/ron-basra',
@@ -43,7 +43,7 @@ const recentWork: RecentWorkItem[] = [
   {
     title: "Ron Basra – Instagram Funnel",
     category: "Real Estate",
-    image: "/images/funnel.png",
+    image: "https://digital-agency.takkar.ooo/images/funnel.png",
   },
   {
     title: "Ron Basra – Listing Videos",
@@ -54,12 +54,12 @@ const recentWork: RecentWorkItem[] = [
   {
     title: "Ron Basra – Brand Refresh",
     category: "Branding",
-    image: "/images/BR.png",
+    image: "https://digital-agency.takkar.ooo/images/BR.png",
   },
   {
     title: "Local Broker – Lead Gen",
     category: "Real Estate",
-    image: "/images/brd.jpg",
+    image: "https://digital-agency.takkar.ooo/images/brd.jpg",
   },
 ];
 
@@ -78,7 +78,7 @@ const ronBasraCaseStudySchema = {
     name: 'The Perfect Click',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://theperfectclick.com/images/logo-yellow.png'
+      url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png'
     }
   },
   datePublished: '2024-01-01',
@@ -88,9 +88,9 @@ const ronBasraCaseStudySchema = {
     '@id': 'https://theperfectclick.com/portfolio/ron-basra'
   },
   image: [
-    'https://theperfectclick.com/images/BR.png',
-    'https://theperfectclick.com/images/B1.png',
-    'https://theperfectclick.com/images/B2.png'
+    'https://digital-agency.takkar.ooo/images/BR.png',
+    'https://digital-agency.takkar.ooo/images/B1.png',
+    'https://digital-agency.takkar.ooo/images/B2.png'
   ],
   about: {
     '@type': 'Thing',
@@ -450,7 +450,7 @@ const RonBasraCaseStudy: React.FC = () => {
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
                   <img
-                    src="/images/B1.png"
+                    src="https://digital-agency.takkar.ooo/images/B1.png"
                     alt="Instagram Growth Funnel"
                     className="w-full h-auto object-cover"
                   />
@@ -460,7 +460,7 @@ const RonBasraCaseStudy: React.FC = () => {
                   className="overflow-hidden rounded-xl md:rounded-2xl border border-black/10 shadow-lg md:shadow-xl bg-white group"
                 >
                   <img
-                    src="/images/B2.png"
+                    src="https://digital-agency.takkar.ooo/images/B2.png"
                     alt="Brand Refresh Results"
                     className="w-full h-auto object-cover"
                   />
@@ -539,15 +539,15 @@ const RonBasraCaseStudy: React.FC = () => {
               {[
                 {
                   label: "Marketing Platform",
-                  src: "/images/ML.png",
+                  src: "https://digital-agency.takkar.ooo/images/ML.png",
                 },
                 {
                   label: "Homepage Design",
-                  src: "/images/homepage.png",
+                  src: "https://digital-agency.takkar.ooo/images/homepage.png",
                 },
                 {
                   label: "Office Platform",
-                  src: "/images/office.png",
+                  src: "https://digital-agency.takkar.ooo/images/office.png",
                 },
               ].map((shot, i) => (
                 <AnimatedSection

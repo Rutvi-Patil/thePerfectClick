@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com/agency',
     images: [
       {
-        url: '/images/pro.png',
+        url: 'https://digital-agency.takkar.ooo/images/pro.png',
         width: 1200,
         height: 630,
-        alt: 'The Perfect Click - Our Team',
+        alt: 'The Perfect Click - About Our Digital Agency',
       },
     ],
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About The Perfect Click',
     description: 'Meet our award-winning team and learn about our digital agency expertise',
-    images: ['/images/pro.png'],
+    images: ['https://digital-agency.takkar.ooo/images/pro.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com/agency',
@@ -61,7 +61,7 @@ const agencyPageSchema = {
     url: 'https://theperfectclick.com',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://theperfectclick.com/images/logo-yellow.png'
+      url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png'
     },
     description: 'Award-winning digital agency specializing in web design, development, branding, and digital marketing services.',
     address: {
@@ -95,7 +95,7 @@ const agencyPageSchema = {
   },
   keywords: ['about digital agency', 'digital agency team', 'web design company', 'agency values', 'meet the team'],
   dateModified: '2024-12-01',
-  image: 'https://theperfectclick.com/images/pro.png'
+  image: 'https://digital-agency.takkar.ooo/images/pro.png'
 };
 
 export default function AgencyPage() {

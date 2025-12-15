@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com/portfolio/forte',
     images: [
       {
-        url: '/images/hg.png',
+        url: 'https://digital-agency.takkar.ooo/images/hg.png',
         width: 1200,
         height: 630,
         alt: 'Forte Physiotherapy - Healthcare Website Case Study',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Forte Physiotherapy Case Study',
     description: 'How digital transformation drove healthcare success',
-    images: ['/images/hg.png'],
+    images: ['https://digital-agency.takkar.ooo/images/hg.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com/portfolio/forte',
@@ -157,7 +157,7 @@ const forteCaseStudySchema = {
     name: 'The Perfect Click',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://theperfectclick.com/images/logo-yellow.png'
+      url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png'
     }
   },
   datePublished: '2024-01-01',
@@ -167,9 +167,9 @@ const forteCaseStudySchema = {
     '@id': 'https://theperfectclick.com/portfolio/forte'
   },
   image: [
-    'https://theperfectclick.com/images/hg.png',
-    'https://theperfectclick.com/images/d.png',
-    'https://theperfectclick.com/images/s.png'
+    'https://digital-agency.takkar.ooo/images/hg.png',
+    'https://digital-agency.takkar.ooo/images/d.png',
+    'https://digital-agency.takkar.ooo/images/s.png'
   ],
   about: {
     '@type': 'Thing',
@@ -440,15 +440,15 @@ const ForteCaseStudy: React.FC = () => {
               {[
                 {
                   label: "Patient Portal",
-                  src: "/images/hg.png",
+                  src: "https://digital-agency.takkar.ooo/images/hg.png",
                 },
                 {
                   label: "Booking System",
-                  src: "/images/d.png",
+                  src: "https://digital-agency.takkar.ooo/images/d.png",
                 },
                 {
                   label: "Care Dashboard",
-                  src: "/images/s.png",
+                  src: "https://digital-agency.takkar.ooo/images/s.png",
                 },
               ].map((shot, i) => (
                 <AnimatedSection

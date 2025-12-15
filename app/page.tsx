@@ -20,18 +20,18 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com',
     images: [
       {
-        url: '/images/homepage.png',
+        url: 'https://digital-agency.takkar.ooo/images/homepage.png',
         width: 1200,
         height: 630,
-        alt: 'The Perfect Click - Web Design & Development Services',
+        alt: 'The Perfect Click - Digital Agency Homepage',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Perfect Click',
+    title: 'The Perfect Click - Digital Agency',
     description: 'Transform your business with our award-winning digital services',
-    images: ['/images/homepage.png'],
+    images: ['https://digital-agency.takkar.ooo/images/homepage.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com',
@@ -62,7 +62,7 @@ const homePageSchema = {
     url: 'https://theperfectclick.com',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://theperfectclick.com/images/logo-yellow.png'
+      url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png'
     },
     description: 'Award-winning digital agency specializing in web design, development, branding, and digital marketing services.',
     address: {
@@ -86,7 +86,7 @@ const homePageSchema = {
   },
   keywords: ['digital agency', 'web design', 'custom development', 'branding services', 'digital marketing', 'SEO services'],
   dateModified: '2024-12-01',
-  image: 'https://theperfectclick.com/images/homepage.png'
+  image: 'https://digital-agency.takkar.ooo/images/homepage.png'
 };
 
 export default function Home() {

@@ -15,18 +15,18 @@ export const metadata: Metadata = {
     url: 'https://theperfectclick.com/expertise',
     images: [
       {
-        url: '/images/newH.png',
+        url: 'https://digital-agency.takkar.ooo/images/newH.png',
         width: 1200,
         height: 630,
-        alt: 'The Perfect Click - Our Services and Expertise',
+        alt: 'The Perfect Click - Digital Agency Services',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Perfect Click - Our Expertise',
+    title: 'Our Digital Agency Services',
     description: 'Professional digital agency services to grow your business',
-    images: ['/images/newH.png'],
+    images: ['https://digital-agency.takkar.ooo/images/newH.png'],
   },
   alternates: {
     canonical: 'https://theperfectclick.com/expertise',
@@ -44,7 +44,7 @@ const expertiseServiceSchema = {
     url: 'https://theperfectclick.com',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://theperfectclick.com/images/logo-yellow.png'
+      url: 'https://digital-agency.takkar.ooo/images/logo-yellow.png'
     }
   },
   serviceType: ['Web Design', 'Web Development', 'Branding', 'Digital Marketing', 'SEO', 'Content Strategy'],
