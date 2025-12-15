@@ -28,21 +28,21 @@ function PortfolioPage() {
                 </div>
                 <Link 
                   href="/portfolio/northwest" 
-                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 mb-8 lg:mb-0 transition-colors duration-200 hover:bg-yellow-300"
                 >
                   View Full Case Study →
                 </Link>
               </div>
             </div>
 
-            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+            <div className="flex-2 relative w-full lg:min-w-[800px] aspect-video lg:aspect-[16/9] lg:h-[500px] h-48 sm:h-56 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
               <video 
                 autoPlay 
                 muted 
                 loop 
                 playsInline 
                 controls
-                className="w-full lg:h-[500px] h-64 object-cover block"
+                className="w-full h-full object-cover block"
               >
                 <source
                   src="https://r2-northwest.takkar.ooo/surrey_city_centre_Drone_May7_compressed.mp4"
@@ -75,21 +75,21 @@ function PortfolioPage() {
                 </div>
                 <Link 
                   href="/portfolio/ron-basra" 
-                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 mb-8 lg:mb-0 transition-colors duration-200 hover:bg-yellow-300"
                 >
                   View Full Case Study →
                 </Link>
               </div>
             </div>
 
-            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+            <div className="flex-2 relative w-full lg:min-w-[800px] aspect-video lg:aspect-[16/9] lg:h-[500px] h-48 sm:h-56 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
               <video 
                 autoPlay 
                 muted 
                 loop 
                 playsInline 
                 controls
-                className="w-full lg:h-[500px] h-64 object-cover block"
+                className="w-full h-full object-cover block"
               >
                 <source
                   src="https://digital-agency.takkar.ooo/RBF.mp4"
@@ -125,21 +125,21 @@ function PortfolioPage() {
                 </div>
                 <Link 
                   href="/portfolio/forte" 
-                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 mb-8 lg:mb-0 transition-colors duration-200 hover:bg-yellow-300"
                 >
                   View Full Case Study →
                 </Link>
               </div>
             </div>
 
-            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+            <div className="flex-2 relative w-full lg:min-w-[800px] aspect-video lg:aspect-[16/9] lg:h-[500px] h-48 sm:h-56 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
               <video 
                 autoPlay 
                 muted 
                 loop 
                 playsInline 
                 controls
-                className="w-full lg:h-[500px] h-64 object-cover block"
+                className="w-full h-full object-cover block"
               >
                 <source
                   src="https://r2-northwest.takkar.ooo/forte-hero.mp4"
@@ -172,21 +172,21 @@ function PortfolioPage() {
                 </div>
                 <Link 
                   href="/portfolio/medallion-homes" 
-                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 mb-8 lg:mb-0 transition-colors duration-200 hover:bg-yellow-300"
                 >
                   View Full Case Study →
                 </Link>
               </div>
             </div>
 
-            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+            <div className="flex-2 relative w-full lg:min-w-[800px] aspect-video lg:aspect-[16/9] lg:h-[500px] h-48 sm:h-56 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
               <video 
                 autoPlay 
                 muted 
                 loop 
                 playsInline 
                 controls
-                className="w-full lg:h-[500px] h-64 object-cover block"
+                className="w-full h-full object-cover block"
               >
                 <source
                   src="https://r2-medallion.takkar.ooo/compressed_3118.mp4"
@@ -220,18 +220,18 @@ function PortfolioPage() {
                 </div>
                 <Link 
                   href="/portfolio/armaan-sandhu" 
-                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 transition-colors duration-200 hover:bg-yellow-300"
+                  className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold no-underline mt-6 mb-8 lg:mb-0 transition-colors duration-200 hover:bg-yellow-300"
                 >
                   View Full Case Study →
                 </Link>
               </div>
             </div>
 
-            <div className="flex-2 relative lg:min-w-[800px] w-full lg:h-[500px] h-64 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
+            <div className="flex-2 relative w-full lg:min-w-[800px] aspect-video lg:aspect-[16/9] lg:h-[500px] h-48 sm:h-56 lg:rounded-xl rounded-lg overflow-hidden shadow-lg lg:flex items-end block">
               <img
                 src="https://placehold.co/800x530/1e1e1e/888888?text=Chronos+Desktop+View"
                 alt="Dark, minimalist computer desktop interface."
-                className="w-full lg:h-[500px] h-64 object-cover block"
+                className="w-full h-full object-cover block"
               />
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-4 rounded-xl gap-2.5 shadow-2xl flex items-center lg:w-auto w-[280px]">
                 <span className="lg:text-2xl text-xl text-red-400">★</span>

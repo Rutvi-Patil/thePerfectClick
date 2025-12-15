@@ -107,9 +107,9 @@ const RonBasraCaseStudy: React.FC = () => {
             </div>
 
             {/* hero image */}
-            <div className="relative mt-10 overflow-hidden rounded-3xl border border-gray-200 bg-gray-50/80 shadow-[0_0_60px_-30px_rgba(251,146,60,0.3)]">
+            <div className="relative mt-10 overflow-hidden rounded-2xl sm:rounded-3xl border border-gray-200 bg-gray-50/80 shadow-[0_0_60px_-30px_rgba(251,146,60,0.3)]">
               {/* Aspect-ratio wrapper */}
-              <div className="relative w-full aspect-[16/9]">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/9]">
                 {/* Video background */}
                 <video
                   src="https://digital-agency.takkar.ooo/RBF.mp4"

@@ -121,7 +121,7 @@ const ForteCaseStudy: React.FC = () => {
       {/* MAIN */}
       <main className="pt-16 md:pt-20">
         {/* FULL HERO VIDEO WITH TITLE OVERLAY */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
           {/* Video Background */}
           <div className="absolute inset-0 z-0">
             <video
@@ -219,7 +219,7 @@ const ForteCaseStudy: React.FC = () => {
       </p>
     </div>
 
-    <div className="grid gap-8 sm:gap-12 md:gap-16 md:grid-cols-3 place-items-center">
+    <div className="grid gap-8 sm:gap-12 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
       {teamMembers.map((member, index) => (
         <div key={index} className="text-center group flex flex-col items-center max-w-xs mx-auto">
 

@@ -8,7 +8,7 @@ export default function Navigation() {
         {/* Left Side - DA Logo and Nav Links */}
         <div className="flex items-center space-x-8 pl-4 sm:pl-8 lg:pl-16">
           {/* Logo */}
-          <Link href="/" className="hover-scale">
+          <Link href="/">
             <img
               src="/logo.png"
               alt="DA Logo"

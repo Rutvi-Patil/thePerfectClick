@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
-          <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.1s' }}>
+          <div className="animate-fadeInUp animate-delay-100">
             <div className="flex items-center gap-2 mb-4">
               <img
                 src="/logo-yellow.png"
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
           
           {/* Quick Links */}
-          <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.2s' }}>
+          <div className="animate-fadeInUp animate-delay-200">
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><a href="#home" className="text-gray-400 hover:text-yellow-400 transition-colors">Home</a></li>
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
           
           {/* Services */}
-          <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.3s' }}>
+          <div className="animate-fadeInUp animate-delay-300">
             <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Web Design</a></li>
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
           
           {/* Newsletter */}
-          <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.4s' }}>
+          <div className="animate-fadeInUp animate-delay-400">
             <h3 className="text-lg font-bold mb-4">Newsletter</h3>
             <p className="text-gray-400 mb-4">
               Subscribe to get the latest updates and news.
@@ -83,10 +83,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm animate-fadeInUp opacity-0" style={{ animationDelay: '0.5s' }}>
+            <p className="text-gray-400 text-sm animate-fadeInUp animate-delay-500">
               © 2024 Digital Agency. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm animate-fadeInUp opacity-0" style={{ animationDelay: '0.6s' }}>
+            <div className="flex gap-6 text-sm animate-fadeInUp animate-delay-600">
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Terms of Service</a>
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Cookie Policy</a>

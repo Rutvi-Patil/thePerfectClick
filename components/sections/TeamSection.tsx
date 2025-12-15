@@ -124,9 +124,7 @@ export default function TeamSection() {
           {portraits.map((portrait, index) => (
             <div 
               key={index} 
-              className={`relative overflow-hidden group cursor-pointer transition-all duration-300 ${
-                index === 1 ? 'md:scale-110 md:z-10' : ''
-              }`}
+              className="relative overflow-hidden group cursor-pointer transition-all duration-300"
             >
               <div className={`aspect-[3/4] ${index === 1 ? 'md:aspect-[4/5]' : ''}`}>
                 <img

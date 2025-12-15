@@ -201,7 +201,7 @@ const MedallionHomesCaseStudy: React.FC = () => {
       {/* MAIN */}
       <main className="pt-16 md:pt-20">
         {/* FULL HERO VIDEO WITH TITLE OVERLAY */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
           {/* Video Background */}
           <div className="absolute inset-0 z-0">
             <video

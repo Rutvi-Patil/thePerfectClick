@@ -45,7 +45,8 @@ export default function MobileMenu() {
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
-            <Link href="/" className="hover-scale" onClick={closeSidebar}>
+            <Link href="/" onClick={closeSidebar}>
+  +++++++ REPLACE
               <img
                 src="/logo.png"
                 alt="DA Logo"

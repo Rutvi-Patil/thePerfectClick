@@ -86,7 +86,7 @@ export default function AboutTwoColumnSection() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               {/* CTA Button */}
               <button 
-                className="inline-flex items-center justify-between px-7 py-4 rounded-md shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 group"
+                className="inline-flex items-center justify-between px-7 py-4 rounded-md shadow-md hover:shadow-lg transition-all duration-300 group"
                 style={{ 
                   backgroundColor: '#111111',
                   borderRadius: '4-6px'
@@ -96,7 +96,7 @@ export default function AboutTwoColumnSection() {
                   LET'S TALK NOW
                 </span>
                 <svg 
-                  className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform duration-300" 
+                  className="w-5 h-5 text-white transition-transform duration-300" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"

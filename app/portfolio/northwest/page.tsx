@@ -110,7 +110,7 @@ const NorthwestCaseStudy: React.FC = () => {
 
         {/* HERO VIDEO */}
         <section className="relative w-full">
-          <div className="relative aspect-[2/3] sm:aspect-[3/4] md:aspect-[16/9] lg:aspect-[1411/551] w-full">
+          <div className="relative aspect-[4/3] sm:aspect-[3/4] md:aspect-[16/9] lg:aspect-[1411/551] w-full">
             <video
               autoPlay
               playsInline
