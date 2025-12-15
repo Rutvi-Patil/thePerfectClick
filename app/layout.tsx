@@ -20,8 +20,60 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Crafto - Digital Agency",
+  title: "The Perfect Click",
   description: "Award-winning digital agency creating exceptional digital experiences",
+  metadataBase: new URL('https://theperfectclick.com'),
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://theperfectclick.com',
+    siteName: 'The Perfect Click',
+    images: [
+      {
+        url: '/images/logo-yellow.png',
+        width: 1200,
+        height: 630,
+        alt: 'The Perfect Click',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Perfect Click',
+    description: 'Award-winning digital agency creating exceptional digital experiences',
+    images: ['/images/logo-yellow.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'The Perfect Click',
+  url: 'https://theperfectclick.com',
+  logo: 'https://theperfectclick.com/images/logo-yellow.png',
+  description: 'Award-winning digital agency creating exceptional digital experiences',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+1-555-0123',
+    contactType: 'customer service',
+    availableLanguage: 'English'
+  },
+  sameAs: [
+    'https://twitter.com/crafto',
+    'https://linkedin.com/company/crafto',
+    'https://instagram.com/crafto'
+  ]
 };
 
 export default function RootLayout({
@@ -31,6 +83,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema)
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${manrope.variable} ${spaceGrotesk.variable} antialiased`}
       >

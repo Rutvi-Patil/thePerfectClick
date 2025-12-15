@@ -3,6 +3,98 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/sections/Footer";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import AnimatedSection from "@/components/AnimatedSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Northwest Constructions Case Study | Website Redesign Success | The Perfect Click',
+  description: 'How we helped Northwest Constructions achieve 58% share price increase through strategic website redesign and digital transformation.',
+  keywords: ['Northwest Constructions', 'website redesign', 'digital transformation', 'construction website', 'Vancouver real estate'],
+  openGraph: {
+    title: 'Northwest Constructions Case Study',
+    description: 'Digital transformation for Vancouver construction company with 58% share price increase',
+    type: 'article',
+    url: 'https://theperfectclick.com/portfolio/northwest',
+    images: [
+      {
+        url: '/images/NewF.png',
+        width: 1200,
+        height: 630,
+        alt: 'Northwest Constructions - Website Redesign Case Study',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Northwest Constructions Case Study',
+    description: 'How website redesign drove construction business success',
+    images: ['/images/NewF.png'],
+  },
+  alternates: {
+    canonical: 'https://theperfectclick.com/portfolio/northwest',
+  },
+};
+
+const breadcrumbListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://theperfectclick.com'
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Portfolio',
+      item: 'https://theperfectclick.com/portfolio'
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Northwest Constructions',
+      item: 'https://theperfectclick.com/portfolio/northwest'
+    }
+  ]
+};
+
+const northwestCaseStudySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Northwest Constructions Case Study | Website Redesign Success',
+  description: 'How we helped Northwest Constructions achieve 58% share price increase through strategic website redesign and digital transformation.',
+  author: {
+    '@type': 'Organization',
+    name: 'The Perfect Click',
+    url: 'https://theperfectclick.com'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'The Perfect Click',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://theperfectclick.com/images/logo-yellow.png'
+    }
+  },
+  datePublished: '2024-01-01',
+  dateModified: '2024-12-01',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://theperfectclick.com/portfolio/northwest'
+  },
+  image: [
+    'https://theperfectclick.com/images/NewF.png',
+    'https://theperfectclick.com/images/oldF.png',
+    'https://theperfectclick.com/images/NewWeb.png'
+  ],
+  about: {
+    '@type': 'Thing',
+    name: 'Northwest Constructions Ltd',
+    description: 'Vancouver construction company digital transformation and website redesign'
+  },
+  keywords: ['Northwest Constructions', 'website redesign', 'digital transformation', 'construction website', 'Vancouver real estate']
+};
 
 const NorthwestCaseStudy: React.FC = () => {
     // Gallery images data for easy maintenance
@@ -59,8 +151,15 @@ const NorthwestCaseStudy: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen w-full bg-white text-[#0f1011]">
-      <Navigation />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([breadcrumbListSchema, northwestCaseStudySchema])
+        }}
+      />
+      <div className="min-h-screen w-full bg-white text-[#0f1011]">
+        <Navigation />
       
       {/* MAIN */}
       <main className="pt-16 md:pt-20">
@@ -445,6 +544,7 @@ const NorthwestCaseStudy: React.FC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

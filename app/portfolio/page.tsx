@@ -2,10 +2,113 @@ import Footer from '@/components/sections/Footer';
 import Link from 'next/link';
 import MarqueeSection from '@/components/sections/MarqueeSection';
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Digital Agency Portfolio | Web Design Case Studies | The Perfect Click',
+  description: 'Explore our portfolio of successful digital projects including Northwest Constructions, Ron Basra Real Estate, Forte Physiotherapy, and Medallion Homes case studies.',
+  keywords: ['digital agency portfolio', 'web design examples', 'case studies', 'digital marketing results', 'web development portfolio'],
+  openGraph: {
+    title: 'Our Digital Agency Portfolio',
+    description: 'Award-winning web design and development projects that deliver real business results',
+    type: 'website',
+    url: 'https://theperfectclick.com/portfolio',
+    images: [
+      {
+        url: '/images/projects.png',
+        width: 1200,
+        height: 630,
+        alt: 'The Perfect Click Portfolio - Web Design Case Studies',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Perfect Click Portfolio - Digital Agency Case Studies',
+    description: 'View our award-winning web design and development projects',
+    images: ['/images/projects.png'],
+  },
+  alternates: {
+    canonical: 'https://theperfectclick.com/portfolio',
+  },
+};
+
+const portfolioPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Digital Agency Portfolio | Web Design Case Studies | The Perfect Click',
+  description: 'Explore our portfolio of successful digital projects including Northwest Constructions, Ron Basra Real Estate, Forte Physiotherapy, and Medallion Homes case studies.',
+  url: 'https://theperfectclick.com/portfolio',
+  identifier: 'https://theperfectclick.com/portfolio',
+  inLanguage: 'en',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'The Perfect Click',
+    url: 'https://theperfectclick.com'
+  },
+  about: {
+    '@type': 'Thing',
+    name: 'Digital Agency Portfolio',
+    description: 'Collection of web design, development, and digital marketing case studies'
+  },
+  mainEntity: {
+    '@type': 'CollectionPage',
+    name: 'Digital Agency Case Studies',
+    description: 'Portfolio of successful digital projects and client success stories',
+    numberOfItems: 5,
+    itemListElement: [
+      {
+        '@type': 'Article',
+        name: 'Northwest Constructions Ltd.',
+        description: 'Website redesign and digital transformation for Vancouver construction company',
+        url: 'https://theperfectclick.com/portfolio/northwest',
+        image: 'https://theperfectclick.com/images/NewF.png'
+      },
+      {
+        '@type': 'Article',
+        name: 'Ron Basra Real Estate Group',
+        description: 'Instagram marketing and content strategy for Vancouver real estate',
+        url: 'https://theperfectclick.com/portfolio/ron-basra',
+        image: 'https://theperfectclick.com/images/BR.png'
+      },
+      {
+        '@type': 'Article',
+        name: 'Forte Sports & Orthopaedic Physiotherapy',
+        description: 'Website redesign for physiotherapy clinic',
+        url: 'https://theperfectclick.com/portfolio/forte',
+        image: 'https://theperfectclick.com/images/funnel.png'
+      },
+      {
+        '@type': 'Article',
+        name: 'Medallion Homes',
+        description: 'Digital platform for luxury custom home builder',
+        url: 'https://theperfectclick.com/portfolio/medallion-homes',
+        image: 'https://theperfectclick.com/images/mhp.png'
+      },
+      {
+        '@type': 'Article',
+        name: 'Armaan Sandhu Real Estate',
+        description: 'Digital marketing for real estate specialist',
+        url: 'https://theperfectclick.com/portfolio/armaan-sandhu',
+        image: 'https://theperfectclick.com/images/projects.png'
+      }
+    ]
+  },
+  keywords: ['digital agency portfolio', 'web design examples', 'case studies', 'digital marketing results', 'web development portfolio'],
+  dateModified: '2024-12-01',
+  image: 'https://theperfectclick.com/images/projects.png'
+};
 
 function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-white font-inter text-gray-800 leading-relaxed py-20 lg:py-20 py-10">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(portfolioPageSchema)
+        }}
+      />
+      <div className="min-h-screen bg-white font-inter text-gray-800 leading-relaxed py-20 lg:py-20 py-10">
       <div className="max-w-7xl mx-auto lg:px-6 px-4">
         {/* PROJECT 1: NORTHWEST */}
         <section className="lg:py-16 py-12 border-b border-gray-100 last:border-b-0">
@@ -247,6 +350,7 @@ function PortfolioPage() {
       <MarqueeSection />
       <Footer />
     </div>
+    </>
   );
 }
 

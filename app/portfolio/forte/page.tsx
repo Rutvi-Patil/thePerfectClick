@@ -5,6 +5,36 @@ import Footer from "@/components/sections/Footer";
 import InteractiveServiceCard from "@/components/InteractiveServiceCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import AnimatedSection from "@/components/AnimatedSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Forte Physiotherapy Case Study | Healthcare Website Success | The Perfect Click',
+  description: 'How we helped Forte Sports & Orthopaedic Physiotherapy achieve 92% customer satisfaction through digital transformation and healthcare platform development.',
+  keywords: ['Forte Physiotherapy', 'healthcare website', 'physiotherapy booking', 'patient portal', 'healthcare UX'],
+  openGraph: {
+    title: 'Forte Physiotherapy Case Study',
+    description: 'Digital transformation for sports and orthopaedic physiotherapy clinic',
+    type: 'article',
+    url: 'https://theperfectclick.com/portfolio/forte',
+    images: [
+      {
+        url: '/images/hg.png',
+        width: 1200,
+        height: 630,
+        alt: 'Forte Physiotherapy - Healthcare Website Case Study',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Forte Physiotherapy Case Study',
+    description: 'How digital transformation drove healthcare success',
+    images: ['/images/hg.png'],
+  },
+  alternates: {
+    canonical: 'https://theperfectclick.com/portfolio/forte',
+  },
+};
 
 type Service = {
   icon: React.ReactNode;
@@ -112,11 +142,54 @@ const testimonials: Testimonial[] = [
   }
 ];
 
+const forteCaseStudySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Forte Sports & Orthopaedic Physiotherapy Case Study',
+  description: 'How we helped Forte Sports & Orthopaedic Physiotherapy achieve 92% customer satisfaction through digital transformation and healthcare platform development.',
+  author: {
+    '@type': 'Organization',
+    name: 'The Perfect Click',
+    url: 'https://theperfectclick.com'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'The Perfect Click',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://theperfectclick.com/images/logo-yellow.png'
+    }
+  },
+  datePublished: '2024-01-01',
+  dateModified: '2024-12-01',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://theperfectclick.com/portfolio/forte'
+  },
+  image: [
+    'https://theperfectclick.com/images/hg.png',
+    'https://theperfectclick.com/images/d.png',
+    'https://theperfectclick.com/images/s.png'
+  ],
+  about: {
+    '@type': 'Thing',
+    name: 'Forte Sports & Orthopaedic Physiotherapy',
+    description: 'Healthcare physiotherapy clinic digital transformation'
+  }
+};
+
 const ForteCaseStudy: React.FC = () => {
 
   return (
-    <div className="min-h-screen w-full bg-white text-[#0f1011]" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
-      <Navigation />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(forteCaseStudySchema)
+        }}
+      />
+      <div className="min-h-screen w-full bg-white text-[#0f1011]" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
+        <Navigation />
       
       {/* MAIN */}
       <main className="pt-16 md:pt-20">
@@ -418,6 +491,7 @@ const ForteCaseStudy: React.FC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

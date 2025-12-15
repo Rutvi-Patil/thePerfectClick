@@ -1,10 +1,38 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Trees, Frame, Home, Utensils, HardHat, Clipboard, Hammer, Key, Star } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/sections/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Medallion Homes Case Study | Custom Home Builder Success | The Perfect Click',
+  description: 'How we helped Medallion Homes achieve 450k sample listing value through digital transformation and luxury construction platform development.',
+  keywords: ['custom home builder', 'luxury construction', 'Medallion Homes', 'digital transformation', 'real estate website'],
+  openGraph: {
+    title: 'Medallion Homes Case Study',
+    description: 'Digital transformation for luxury custom home builder serving Greater Toronto Area',
+    type: 'article',
+    url: 'https://theperfectclick.com/portfolio/medallion-homes',
+    images: [
+      {
+        url: '/images/mhp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Medallion Homes - Custom Home Builder Case Study',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Medallion Homes Case Study',
+    description: 'How digital transformation drove luxury construction success',
+    images: ['/images/mhp.png'],
+  },
+  alternates: {
+    canonical: 'https://theperfectclick.com/portfolio/medallion-homes',
+  },
+};
 
 type Project = {
   title: string;
@@ -181,20 +209,58 @@ const testimonials: Testimonial[] = [
   }
 ];
 
-const MedallionHomesCaseStudy: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<string>("all");
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [animatedStats, setAnimatedStats] = useState({ years: 0, homes: 0, neighborhoods: 0 });
+const medallionHomesCaseStudySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Medallion Homes Case Study | Custom Home Builder Success',
+  description: 'How we helped Medallion Homes achieve 450k sample listing value through digital transformation and luxury construction platform development.',
+  author: {
+    '@type': 'Organization',
+    name: 'The Perfect Click',
+    url: 'https://theperfectclick.com'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'The Perfect Click',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://theperfectclick.com/images/logo-yellow.png'
+    }
+  },
+  datePublished: '2024-01-01',
+  dateModified: '2024-12-01',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://theperfectclick.com/portfolio/medallion-homes'
+  },
+  image: [
+    'https://theperfectclick.com/images/mhp.png',
+    'https://theperfectclick.com/images/prop.png',
+    'https://theperfectclick.com/images/pro.png'
+  ],
+  about: {
+    '@type': 'Thing',
+    name: 'Medallion Homes',
+    description: 'Luxury custom home builder serving Greater Toronto Area with premium construction and renovation services'
+  },
+  keywords: ['custom home builder', 'luxury construction', 'Medallion Homes', 'digital transformation', 'real estate website', 'GTA construction']
+};
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimatedStats({ years: 25, homes: 500, neighborhoods: 15 });
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+const MedallionHomesCaseStudy: React.FC = () => {
+  // Static values for server-side rendering
+  const activeFilter = "all";
+  const selectedProject = null;
+  const activeTestimonial = 0;
+  const animatedStats = { years: 25, homes: 500, neighborhoods: 15 };
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medallionHomesCaseStudySchema)
+        }}
+      />
     <div className="min-h-screen w-full bg-white text-[#0f1011]" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
       <Navigation />
       
@@ -322,20 +388,19 @@ const MedallionHomesCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            {/* Filter Buttons */}
+            {/* Filter Labels */}
             <div className="flex justify-center gap-4 mb-12">
-              {["all", "Custom Home", "Home Addition", "Renovation"].map((filter) => (
-                <button
+              {["All Projects", "Custom Home", "Home Addition", "Renovation"].map((filter) => (
+                <div
                   key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                    activeFilter === filter
+                  className={`px-6 py-2 rounded-full font-medium ${
+                    filter === "All Projects"
                       ? "bg-amber-600 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      : "bg-gray-100 text-gray-700"
                   }`}
                 >
-                  {filter === "all" ? "All Projects" : filter}
-                </button>
+                  {filter}
+                </div>
               ))}
             </div>
 
@@ -345,8 +410,7 @@ const MedallionHomesCaseStudy: React.FC = () => {
                 .map((project, index) => (
                 <div 
                   key={index} 
-                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                  onClick={() => setSelectedProject(selectedProject === index ? null : index)}
+                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <div className="aspect-[4/3] overflow-hidden">
                     <img 
@@ -625,9 +689,8 @@ const MedallionHomesCaseStudy: React.FC = () => {
                 <div
                   key={index}
                   className={`rounded-2xl bg-white p-4 sm:p-6 md:p-8 shadow-lg transition-all duration-300 ${
-                    activeTestimonial === index ? 'ring-2 ring-amber-600 shadow-xl' : ''
+                    index === 0 ? 'ring-2 ring-amber-600 shadow-xl' : ''
                   }`}
-                  onClick={() => setActiveTestimonial(index)}
                 >
                   <div className="flex mb-3 sm:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -871,6 +934,7 @@ const MedallionHomesCaseStudy: React.FC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

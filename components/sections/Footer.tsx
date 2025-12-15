@@ -13,7 +13,7 @@ export default function Footer() {
                 alt="DA Logo"
                 className="w-10 h-10"
               />
-              <span className="text-lg sm:text-xl font-bold">Digital Agency</span>
+              <span className="text-lg sm:text-xl font-bold">The Perfect Click</span>
             </div>
             <p className="text-gray-400 mb-4 text-sm sm:text-base">
               Creating world-class digital experiences that inspire and engage.
@@ -84,7 +84,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm animate-fadeInUp animate-delay-500">
-              © 2024 Digital Agency. All rights reserved.
+              © 2024 The Perfect Click. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm animate-fadeInUp animate-delay-600">
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Privacy Policy</a>

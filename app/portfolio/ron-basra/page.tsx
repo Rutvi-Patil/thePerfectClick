@@ -1,9 +1,37 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import Footer from "@/components/sections/Footer";
 import InstagramEmbed from "@/components/InstagramEmbed";
 import AnimatedSection from "@/components/AnimatedSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Ron Basra Real Estate Case Study | Digital Marketing Success | The Perfect Click',
+  description: 'How we helped Ron Basra Real Estate achieve 28+ years of award-winning service through strategic Instagram marketing and content strategy.',
+  keywords: ['real estate digital marketing', 'Instagram case study', 'Ron Basra', 'social media marketing', 'real estate branding'],
+  openGraph: {
+    title: 'Ron Basra Real Estate Case Study',
+    description: '1 year of social media-driven growth for Vancouver real estate brand',
+    type: 'article',
+    url: 'https://theperfectclick.com/portfolio/ron-basra',
+    images: [
+      {
+        url: '/images/BR.png',
+        width: 1200,
+        height: 630,
+        alt: 'Ron Basra Real Estate - Digital Marketing Case Study',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ron Basra Real Estate Case Study',
+    description: 'How strategic Instagram marketing drove real estate success',
+    images: ['/images/BR.png'],
+  },
+  alternates: {
+    canonical: 'https://theperfectclick.com/portfolio/ron-basra',
+  },
+};
 
 type RecentWorkItem = {
   title: string;
@@ -35,24 +63,61 @@ const recentWork: RecentWorkItem[] = [
   },
 ];
 
+const ronBasraCaseStudySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Ron Basra Real Estate Case Study | Digital Marketing Success',
+  description: 'How we helped Ron Basra Real Estate achieve 28+ years of award-winning service through strategic Instagram marketing and content strategy.',
+  author: {
+    '@type': 'Organization',
+    name: 'The Perfect Click',
+    url: 'https://theperfectclick.com'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'The Perfect Click',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://theperfectclick.com/images/logo-yellow.png'
+    }
+  },
+  datePublished: '2024-01-01',
+  dateModified: '2024-12-01',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://theperfectclick.com/portfolio/ron-basra'
+  },
+  image: [
+    'https://theperfectclick.com/images/BR.png',
+    'https://theperfectclick.com/images/B1.png',
+    'https://theperfectclick.com/images/B2.png'
+  ],
+  about: {
+    '@type': 'Thing',
+    name: 'Ron Basra Real Estate Group',
+    description: 'Vancouver real estate digital marketing and Instagram growth strategy'
+  },
+  keywords: ['real estate digital marketing', 'Instagram case study', 'Ron Basra', 'social media marketing', 'real estate branding']
+};
+
 const RonBasraCaseStudy: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % recentWork.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev === 0 ? recentWork.length - 1 : prev - 1));
-  };
+  // Static values for server-side rendering
+  const currentSlide = 0;
 
   return (
-    <div
-      className="min-h-screen bg-white text-gray-800"
-      style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
-    >
-      {/* HERO */}
-      <main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(ronBasraCaseStudySchema)
+        }}
+      />
+      <div
+        className="min-h-screen bg-white text-gray-800"
+        style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+      >
+        {/* HERO */}
+        <main>
         <section className="border-b border-gray-100 bg-gradient-to-b from-white to-gray-50">
           <div className="mx-auto max-w-6xl px-4 pb-16 pt-14 md:pt-20">
             {/* tags */}
@@ -413,20 +478,18 @@ const RonBasraCaseStudy: React.FC = () => {
                 Recent work
               </h2>
               <div className="flex gap-2">
-                <button
-                  onClick={handlePrev}
+                <div
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600"
                   style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
                 >
                   ←
-                </button>
-                <button
-                  onClick={handleNext}
+                </div>
+                <div
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600"
                   style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
                 >
                   →
-                </button>
+                </div>
               </div>
             </div>
 
@@ -559,6 +622,7 @@ const RonBasraCaseStudy: React.FC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 
