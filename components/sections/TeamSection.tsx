@@ -14,26 +14,6 @@ export default function TeamSection() {
     }
   ];
 
-  const portraits = [
-    {
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      alt: "Female team member",
-      name: "Jessica Dover",
-      position: "Designer"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      alt: "Male team member with beard",
-      name: "Jeremy Dupont",
-      position: "Director"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      alt: "Older male team member",
-      name: "Matthew Taylor",
-      position: "Manager"
-    }
-  ];
 
   return (
     <section className="py-32 bg-white">
@@ -119,41 +99,6 @@ export default function TeamSection() {
           </div>
         </div>
 
-        {/* BOTTOM HALF - Team Portrait Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
-          {portraits.map((portrait, index) => (
-            <div 
-              key={index} 
-              className="relative overflow-hidden group cursor-pointer transition-all duration-300"
-            >
-              <div className={`aspect-[3/4] ${index === 1 ? 'md:aspect-[4/5]' : ''}`}>
-                <img
-                  src={portrait.image}
-                  alt={portrait.alt}
-                  className="w-full h-full object-cover filter grayscale contrast-125 transition-all duration-300"
-                  style={{
-                    filter: 'grayscale(100%) contrast(1.25)',
-                  }}
-                />
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-end">
-                  <div className="w-full p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 
-                      className="text-white text-xl font-bold mb-1"
-                      style={{ fontFamily: 'var(--font-space-grotesk, sans-serif)' }}
-                    >
-                      {portrait.name}
-                    </h3>
-                    <p className="text-gray-300 text-sm">
-                      {portrait.position}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

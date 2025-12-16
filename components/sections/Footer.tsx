@@ -1,10 +1,12 @@
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
+
   return (
     <footer className="bg-black text-white py-8 sm:py-12 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="animate-fadeInUp animate-delay-100">
             <div className="flex items-center gap-2 mb-4">
@@ -38,23 +40,11 @@ export default function Footer() {
           <div className="animate-fadeInUp animate-delay-200">
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-400 hover:text-yellow-400 transition-colors">Home</a></li>
-              <li><a href="#agency" className="text-gray-400 hover:text-yellow-400 transition-colors">About Us</a></li>
-              <li><a href="#expertise" className="text-gray-400 hover:text-yellow-400 transition-colors">Services</a></li>
-              <li><a href="#portfolio" className="text-gray-400 hover:text-yellow-400 transition-colors">Portfolio</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-yellow-400 transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          
-          {/* Services */}
-          <div className="animate-fadeInUp animate-delay-300">
-            <h3 className="text-lg font-bold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Web Design</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Marketing</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Branding</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Content Writing</a></li>
+              <li><Link href="/" className="text-gray-400 hover:text-yellow-400 transition-colors">Home</Link></li>
+              <li><Link href="/agency" className="text-gray-400 hover:text-yellow-400 transition-colors">About Us</Link></li>
+              <li><Link href="/expertise" className="text-gray-400 hover:text-yellow-400 transition-colors">Services</Link></li>
+              <li><Link href="/portfolio" className="text-gray-400 hover:text-yellow-400 transition-colors">Portfolio</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-yellow-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
           
@@ -87,9 +77,9 @@ export default function Footer() {
               © 2024 The Perfect Click. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm animate-fadeInUp animate-delay-600">
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Cookie Policy</a>
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-yellow-400 transition-colors">Privacy Policy</Link>
+              <Link href="/terms-of-service" className="text-gray-400 hover:text-yellow-400 transition-colors">Terms of Service</Link>
+              <Link href="/cookie-policy" className="text-gray-400 hover:text-yellow-400 transition-colors">Cookie Policy</Link>
             </div>
           </div>
         </div>

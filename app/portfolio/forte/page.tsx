@@ -467,26 +467,6 @@ const ForteCaseStudy: React.FC = () => {
           </div>
         </section>
 
-        {/* BOOKING CTA */}
-        <section className="py-20 bg-white">
-          <div className="mx-auto max-w-4xl px-4 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl mb-6" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-              Ready to Start Your Recovery?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Book your appointment today and take the first step towards a pain-free life
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row justify-center">
-              <button className="rounded-full bg-teal-600 px-8 py-4 text-base font-semibold text-white hover:bg-teal-700 transition-colors">
-                Book Appointment Now
-              </button>
-              <button className="rounded-full border-2 border-teal-600 px-8 py-4 text-base font-semibold text-teal-600 hover:bg-teal-50 transition-colors">
-                Call (555) 123-4567
-              </button>
-            </div>
-          </div>
-        </section>
-
       </main>
 
       <Footer />

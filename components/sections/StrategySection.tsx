@@ -1,8 +1,17 @@
+'use client';
+
+import { useState } from 'react';
 import { Mail } from 'lucide-react';
+import ContactModal from '../ContactModal';
 
 export default function StrategySection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
-    <section className="py-16 sm:py-20 lg:py-32 xl:py-40 bg-white">
+    <>
+      <section className="py-16 sm:py-20 lg:py-32 xl:py-40 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           
@@ -29,7 +38,7 @@ export default function StrategySection() {
             </p>
             
             {/* CTA Button */}
-            <button className="bg-[#1A1A1A] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-sm hover:bg-[#333333] transition-colors flex items-center gap-3 shadow-lg mx-auto lg:mx-0">
+            <button onClick={openModal} className="bg-[#1A1A1A] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-sm hover:bg-[#333333] transition-colors flex items-center gap-3 shadow-lg mx-auto lg:mx-0">
               LET'S TALK NOW
               <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -85,5 +94,9 @@ export default function StrategySection() {
         </div>
       </div>
     </section>
+    
+    {/* Contact Modal */}
+    <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+    </>
   );
 }

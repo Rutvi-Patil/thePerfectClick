@@ -59,7 +59,7 @@ export default function BeforeAfterSlider({
             }
           `}</style>
           
-          <div className="aspect-[4/3] md:aspect-[16/9]">
+          <div className="w-full" style={{ minHeight: '400px' }}>
             <ImgComparisonSlider>
               <img 
                 slot="first" 

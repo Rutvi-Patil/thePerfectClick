@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import ContactModal from './ContactModal';
 
 export default function MobileMenu() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -13,6 +15,15 @@ export default function MobileMenu() {
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    closeSidebar(); // Close sidebar when opening modal
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -46,7 +57,6 @@ export default function MobileMenu() {
           {/* Sidebar Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <Link href="/" onClick={closeSidebar}>
-  +++++++ REPLACE
               <img
                 src="/logo.png"
                 alt="DA Logo"
@@ -106,14 +116,19 @@ export default function MobileMenu() {
 
           {/* Sidebar Footer */}
           <div className="p-6 border-t border-gray-200">
-            <Link href="/contact" onClick={closeSidebar}>
-              <button className="btn-hover-slide w-full bg-black text-white px-6 py-3 hover:bg-gray-800 transition-colors" suppressHydrationWarning>
-                Send a message
-              </button>
-            </Link>
+            <button 
+              onClick={openModal}
+              className="btn-hover-slide w-full bg-black text-white px-6 py-3 hover:bg-gray-800 transition-colors" 
+              suppressHydrationWarning
+            >
+              Send a message
+            </button>
           </div>
         </div>
       </div>
+      
+      {/* Contact Modal */}
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 }

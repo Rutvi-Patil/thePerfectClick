@@ -480,63 +480,7 @@ const NorthwestCaseStudy: React.FC = () => {
 
         {/* OTHER PROJECTS */}
 
-        <section className="bg-[#0f1011] border-t border-white/10">
-          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
-            <h2 className="text-xl md:text-3xl font-black text-white uppercase">
-              More projects
-            </h2>
-            <div className="mt-8 md:mt-10 grid gap-8 md:gap-10 sm:grid-cols-1 md:grid-cols-2">
-              <article className="group relative">
-                <div className="relative aspect-[16/9] overflow-hidden rounded-xl md:rounded-2xl bg-neutral-900">
-                  <img
-                    src="https://s3.ap-south-1.amazonaws.com/awsimages.imagesbazaar.com/1200x1800-old/21364/SM1113665.jpg?date=Thu%20Dec%2004%202025%2021:19:34%20GMT+0530%20(India%20Standard%20Time)"
-                    alt="Another project"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/30" />
-                </div>
-                <div className="mt-3 md:mt-4 flex items-center justify-between text-white">
-                  <div>
-                    <p className="text-[10px] md:text-[11px] uppercase tracking-[0.25em]">
-                      Digital
-                    </p>
-                    <h3 className="mt-1 text-base md:text-lg font-black uppercase">
-                      Real estate
-                    </h3>
-                  </div>
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-amber-500 flex items-center justify-center text-black text-xs font-bold translate-x-2">
-                    →
-                  </div>
-                </div>
-              </article>
-
-
-              <article className="group relative">
-                <div className="relative aspect-[16/9] overflow-hidden rounded-xl md:rounded-2xl bg-neutral-900">
-                  <img
-                    src="https://s3.ap-south-1.amazonaws.com/awsimages.imagesbazaar.com/1200x1800-old/18251/ES794681.jpg?date=Thu%20Dec%2004%202025%2021:18:47%20GMT+0530%20(India%20Standard%20Time)"
-                    alt="Another project"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/30" />
-                </div>
-                <div className="mt-3 md:mt-4 flex items-center justify-between text-white">
-                  <div>
-                    <p className="text-[10px] md:text-[11px] uppercase tracking-[0.25em]">
-                      Social & video
-                    </p>
-                    <h3 className="mt-1 text-base md:text-lg font-black uppercase">
-                      Construction employer 
-                    </h3>
-                  </div>
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-amber-500 flex items-center justify-center text-black text-xs font-bold translate-x-2">
-                    →
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
+        
 
 
       </main>

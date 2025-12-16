@@ -1,8 +1,17 @@
+'use client';
+
+import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import ContactModal from '../ContactModal';
 
 export default function ServicesSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
-    <section id="expertise" className="py-12 sm:py-16 lg:py-20 bg-black text-white">
+    <>
+      <section id="expertise" className="py-12 sm:py-16 lg:py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="animate-fadeInUp text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-8 sm:mb-12 opacity-0" style={{ animationDelay: '0.1s' }}>
           It's so challenging to find a good team to do great things. But we can provide you best one.
@@ -49,9 +58,13 @@ export default function ServicesSection() {
         {/* CTA */}
         <p className="animate-fadeInUp text-base sm:text-lg opacity-0 text-center sm:text-left" style={{ animationDelay: '0.6s' }}>
           Save your precious time and effort spent for finding a solution.{" "}
-          <a href="#" className="text-hover-accent underline hover:no-underline">Contact us now</a>
+          <button onClick={openModal} className="text-hover-accent underline hover:no-underline bg-transparent border-none cursor-pointer">Contact us now</button>
         </p>
       </div>
     </section>
+    
+    {/* Contact Modal */}
+    <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+    </>
   );
 }

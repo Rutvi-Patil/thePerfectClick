@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function PortfolioSection() {
   return (
@@ -28,9 +29,6 @@ export default function PortfolioSection() {
                 <div className="portfolio-content text-white text-center">
                   <h3 className="text-2xl font-bold mb-2">Web Design</h3>
                   <p className="mb-4">Modern responsive website design</p>
-                  <button className="bg-white text-black px-4 py-2 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-100 transition-colors">
-                    View Project <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -48,9 +46,6 @@ export default function PortfolioSection() {
                 <div className="portfolio-content text-white text-center">
                   <h3 className="text-2xl font-bold mb-2">Mobile App</h3>
                   <p className="mb-4">iOS and Android application</p>
-                  <button className="bg-white text-black px-4 py-2 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-100 transition-colors">
-                    View Project <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -68,9 +63,6 @@ export default function PortfolioSection() {
                 <div className="portfolio-content text-white text-center">
                   <h3 className="text-2xl font-bold mb-2">Branding</h3>
                   <p className="mb-4">Complete brand identity design</p>
-                  <button className="bg-white text-black px-4 py-2 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-100 transition-colors">
-                    View Project <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -80,7 +72,7 @@ export default function PortfolioSection() {
           <div className="portfolio-item animate-fadeInUp opacity-0" style={{ animationDelay: '0.6s' }}>
             <div className="relative overflow-hidden rounded-lg shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1559028006-44a26f30b5c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                src="https://wp.gingermediagroup.com/wp-content/uploads/2023/06/engaging-marketing-campaigns-by-big-companies.jpg" 
                 alt="Marketing Campaign"
                 className="w-full h-64 object-cover"
               />
@@ -88,9 +80,6 @@ export default function PortfolioSection() {
                 <div className="portfolio-content text-white text-center">
                   <h3 className="text-2xl font-bold mb-2">Marketing</h3>
                   <p className="mb-4">Digital marketing campaign</p>
-                  <button className="bg-white text-black px-4 py-2 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-100 transition-colors">
-                    View Project <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -108,9 +97,6 @@ export default function PortfolioSection() {
                 <div className="portfolio-content text-white text-center">
                   <h3 className="text-2xl font-bold mb-2">E-commerce</h3>
                   <p className="mb-4">Online shopping platform</p>
-                  <button className="bg-white text-black px-4 py-2 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-100 transition-colors">
-                    View Project <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -128,9 +114,6 @@ export default function PortfolioSection() {
                 <div className="portfolio-content text-white text-center">
                   <h3 className="text-2xl font-bold mb-2">UI/UX Design</h3>
                   <p className="mb-4">User interface and experience</p>
-                  <button className="bg-white text-black px-4 py-2 rounded-full flex items-center gap-2 mx-auto hover:bg-gray-100 transition-colors">
-                    View Project <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -139,9 +122,9 @@ export default function PortfolioSection() {
         
         {/* View All Button */}
         <div className="text-center mt-12">
-          <button className="animate-fadeInUp bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-colors flex items-center gap-3 mx-auto opacity-0" style={{ animationDelay: '0.9s' }}>
+          <Link href="/portfolio" className="animate-fadeInUp bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-colors flex items-center gap-3 mx-auto opacity-0 no-underline" style={{ animationDelay: '0.9s' }}>
             View all projects <ArrowRight className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

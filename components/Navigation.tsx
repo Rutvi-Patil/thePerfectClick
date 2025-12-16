@@ -1,7 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import MobileMenu from './MobileMenu';
+import ContactModal from './ContactModal';
+import { useState } from 'react';
 
 export default function Navigation() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <header className="absolute top-0 left-0 right-0 z-50 font-space-grotesk text-[19px]" style={{ fontFamily: 'var(--font-space-grotesk)', fontSize: '19px' }}>
       <div className="flex justify-between items-center h-16 px-2.5 lg:px-4">
@@ -34,15 +42,20 @@ export default function Navigation() {
           
           {/* Send Message Button - Desktop */}
           <div className="hidden sm:block">
-            <Link href="/contact">
-              <button className="btn-hover-slide bg-black text-white px-4 py-2 hover:bg-gray-800 transition-colors border border-black" suppressHydrationWarning>
-                Send a message
-              </button>
-            </Link>
+            <button 
+              onClick={openModal}
+              className="btn-hover-slide bg-black text-white px-4 py-2 hover:bg-gray-800 transition-colors border border-black" 
+              suppressHydrationWarning
+            >
+              Send a message
+            </button>
           </div>
 
         </div>
       </div>
+      
+      {/* Contact Modal */}
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </header>
   );
 }

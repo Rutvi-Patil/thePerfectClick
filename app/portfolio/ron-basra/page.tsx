@@ -101,8 +101,6 @@ const ronBasraCaseStudySchema = {
 };
 
 const RonBasraCaseStudy: React.FC = () => {
-  // Static values for server-side rendering
-  const currentSlide = 0;
 
   return (
     <>
@@ -470,55 +468,35 @@ const RonBasraCaseStudy: React.FC = () => {
           </div>
         </section>
 
-        {/* RECENT WORK CAROUSEL */}
+        {/* RECENT WORK GRID */}
         <section className="border-b border-gray-100 bg-white">
           <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-            <div className="flex items-center justify-between">
+            <div className="mb-8">
               <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">
                 Recent work
               </h2>
-              <div className="flex gap-2">
-                <div
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600"
-                  style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
-                >
-                  ←
-                </div>
-                <div
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600"
-                  style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
-                >
-                  →
-                </div>
-              </div>
             </div>
 
-            <div className="mt-8 overflow-hidden">
-              <div className="flex gap-6 transition-transform duration-500">
-                {recentWork.map((item, index) => (
-                  <article
-                    key={item.title}
-                    className={`w-64 flex-shrink-0 rounded-3xl border bg-white shadow-lg transition-all duration-300 ${
-                      index === currentSlide
-                        ? "border-yellow-600/60 shadow-[0_0_45px_-25px_rgba(250,204,21,0.3)]"
-                        : "border-gray-200 opacity-60"
-                    }`}
-                  >
-                    <div
-                      className="aspect-[3/4] rounded-3xl bg-cover bg-center"
-                      style={{ backgroundImage: `url(${item.image})` }}
-                    />
-                    <div className="space-y-1 p-4">
-                      <h3 className="text-sm font-semibold text-gray-800">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
-                        {item.category}
-                      </p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {recentWork.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="rounded-3xl border border-gray-200 bg-white shadow-lg"
+                >
+                  <div
+                    className="aspect-[3/4] rounded-3xl bg-cover bg-center"
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  />
+                  <div className="space-y-1 p-4">
+                    <h3 className="text-sm font-semibold text-gray-800">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
+                      {item.category}
+                    </p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
